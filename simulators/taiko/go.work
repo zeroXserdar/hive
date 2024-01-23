@@ -5,5 +5,5 @@ use (
 	./engine
 	./testnet
 	./withdrawals
-	./sanity/l1-geth
+	./sanity-l1-geth
 )

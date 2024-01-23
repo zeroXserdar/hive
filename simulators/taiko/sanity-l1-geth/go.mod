@@ -1,4 +1,4 @@
-module github.com/taikoxyz/hive/simulators/taiko/sanity/l1-geth
+module github.com/taikoxyz/hive/simulators/taiko/sanity-l1-geth
 
 go 1.18
 

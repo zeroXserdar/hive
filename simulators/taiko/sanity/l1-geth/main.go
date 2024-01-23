@@ -1,98 +1,76 @@
 package main
 
 import (
-	"fmt"
-
+	"context"
 	"github.com/ethereum/hive/hivesim"
-	"github.com/ethereum/hive/simulators/eth2/common/clients"
-	cl "github.com/ethereum/hive/simulators/eth2/common/config/consensus"
-	"github.com/ethereum/hive/simulators/eth2/common/testnet"
+	"github.com/ethereum/hive/simulators/taiko/common/clients"
+	el "github.com/ethereum/hive/simulators/taiko/common/config/execution"
+	"github.com/ethereum/hive/simulators/taiko/common/testnet"
+	tn "github.com/ethereum/hive/simulators/taiko/common/testnet"
+	"math/big"
 )
 
-type testSpec struct {
-	Name  string
-	About string
-	Run   func(*hivesim.T, *testnet.Environment, clients.NodeDefinition)
-}
-
-var tests = []testSpec{
-	// {Name: "single-client-testnet", Run: Phase0Testnet},
-	{Name: "transition-testnet", Run: TransitionTestnet},
-}
+var (
+	TERMINAL_TOTAL_DIFFICULTY = big.NewInt(100)
+)
 
 func main() {
-	var suite = hivesim.Suite{
-		Name:        "eth2-testnet",
-		Description: `Run different eth2 testnets.`,
+	suite := hivesim.Suite{
+		Name:        "Sanity - L1 - geth",
+		Description: "L1 geth sanity test suite",
 	}
-	suite.Add(hivesim.TestSpec{
-		Name:        "eth2-testnets",
-		Description: "Collection of different eth2 testnet compositions and assertions.",
+	suite.Add(&hivesim.TestSpec{
+		Name:        "chainId31336",
+		Description: "Asserts that the ChainId is equal 31336",
 		Run: func(t *hivesim.T) {
 			clientTypes, err := t.Sim.ClientTypes()
 			if err != nil {
 				t.Fatal(err)
 			}
 			c := clients.ClientsByRole(clientTypes)
-			if len(c.Eth1) != 1 {
-				t.Fatalf("choose 1 eth1 client type")
+			if len(c.L1ExecutionClient) != 1 {
+				t.Fatal("choose 1 l1_client client type")
 			}
-			if len(c.Beacon) != 1 {
-				t.Fatalf("choose 1 beacon client type")
+			for _, node := range c.Combinations() {
+				env := &testnet.Environment{
+					Clients: c,
+				}
+				config := tn.Config{
+					TerminalTotalDifficulty: TERMINAL_TOTAL_DIFFICULTY,
+					NodeDefinitions: []clients.NodeDefinition{
+						node,
+					},
+					L1ExecutionConsensus: el.ExecutionCliqueConsensus{},
+				}
+
+				ctx := context.Background()
+				_ = tn.StartTestnet(ctx, t, env, &config)
 			}
-			if len(c.Validator) != 1 {
-				t.Fatalf("choose 1 validator client type")
-			}
-			runAllTests(t, c)
+
+			chainId31336(t, c)
 		},
 	})
-	hivesim.MustRunSuite(hivesim.New(), suite)
+
+	sim := hivesim.New()
+	hivesim.MustRun(sim, suite)
 }
 
-func runAllTests(t *hivesim.T, c *clients.ClientDefinitionsByRole) {
-	mnemonic := "couple kiwi radio river setup fortune hunt grief buddy forward perfect empty slim wear bounce drift execute nation tobacco dutch chapter festival ice fog"
-
-	// Generate validator keys to use for all tests.
-	keySrc := &cl.MnemonicsKeySource{
-		From:       0,
-		To:         64,
-		Validator:  mnemonic,
-		Withdrawal: mnemonic,
-	}
-	keys, err := keySrc.Keys()
-	if err != nil {
-		t.Fatal(err)
-	}
-	secrets, err := cl.SecretKeys(keys)
-	if err != nil {
-		t.Fatal(err)
-	}
-	for _, node := range c.Combinations() {
-		for _, test := range tests {
-			test := test
-			t.Run(hivesim.TestSpec{
-				Name:        fmt.Sprintf("%s-%s", test.Name, node.String()),
-				Description: test.About,
-				Run: func(t *hivesim.T) {
-					env := &testnet.Environment{
-						Clients: c,
-						Keys:    keys,
-						Secrets: secrets,
-					}
-					test.Run(t, env, node)
-				},
-			})
-		}
-	}
+func chainId31336(t *hivesim.T, c *clients.ClientDefinitionsByRole) {
+	//_, cancel := context.WithTimeout(context.Background(), 60*time.Second)
+	//defer cancel()
+	//
+	//chainIdString := ""
+	//err := c.RPC().Call(&chainIdString, "eth_chainId")
+	//if err != nil {
+	//	t.Fatal(err)
+	//}
+	//
+	//chainId, err := strconv.ParseInt(chainIdString, 0, 0)
+	//if err != nil {
+	//	fmt.Println("Error: %e", err)
+	//	return
+	//}
+	//if chainId != 31336 {
+	//	t.Fatalf("ChainId is not equal 31336, it is %i", chainId)
+	//}
 }
-
-/*
-	TODO More testnet ideas:
-
-	Name:        "two-client-testnet",
-	Description: "This runs quick eth2 testnets with combinations of 2 client types, beacon nodes matched with preferred validator type, and dummy eth1 endpoint.",
-	Name:        "all-client-testnet",
-	Description: "This runs a quick eth2 testnet with all client types, beacon nodes matched with preferred validator type, and dummy eth1 endpoint.",
-	Name:        "cross-single-client-testnet",
-	Description: "This runs a quick eth2 single-client testnet, but beacon nodes are matched with all validator types",
-*/

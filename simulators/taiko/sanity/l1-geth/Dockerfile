@@ -1,16 +1,13 @@
-FROM golang:1-alpine AS builder
-RUN apk --no-cache add gcc musl-dev linux-headers cmake make clang build-base clang-static clang-dev
+FROM golang:latest as builder
 
-# Prepare workspace.
-# Note: the build context of this simulator image is the parent directory!
+# Build the simulator executable.
 ADD . /source
+WORKDIR /source
+RUN go build -v .
 
-# Build within simulator folder
-WORKDIR /source/testnet
-RUN go build -o ./sim .
-
-# Build the runner container.
-FROM alpine:latest
-ADD . /
-COPY --from=builder /source/testnet/sim /
-ENTRYPOINT ["./sim"]
+# Build the simulator run container.
+FROM golang:latest
+ADD . /source
+WORKDIR /source
+COPY --from=builder /source/l1-geth .
+ENTRYPOINT ["./l1-geth"]

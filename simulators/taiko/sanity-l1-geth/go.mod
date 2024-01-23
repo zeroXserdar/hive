@@ -2,7 +2,7 @@ module github.com/taikoxyz/hive/simulators/taiko/sanity-l1-geth
 
 go 1.18
 
-replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123212647-d109f3fded88
+replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123222109-3ac671b690e6
 
 require (
 	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
@@ -66,6 +66,7 @@ require (
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.10.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
+	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123222109-3ac671b690e6 // indirect
 	github.com/tklauser/numcpus v0.6.0 // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
 	golang.org/x/crypto v0.7.0 // indirect

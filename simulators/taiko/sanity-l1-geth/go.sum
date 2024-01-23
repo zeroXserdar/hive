@@ -294,6 +294,8 @@ github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a h1:1ur3QoCqvE5f
 github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a/go.mod h1:RRCYJbIwD5jmqPI9XoAFR0OcDxqUctll6zUj/+B4S48=
 github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123212647-d109f3fded88 h1:/uIWJ/d6BcST9iSd8k0k4+eC9a0LHb1ZW7Q+ouLYM2I=
 github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123212647-d109f3fded88/go.mod h1:7WNk8xUWATTG90jxEwKsP5/+5PZteCwS79JYzcpsx/8=
+github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123222109-3ac671b690e6 h1:VLdOS4OKzlA7jcTMjxNlDrlMc8QmMWcqOZtqQHdbVTM=
+github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123222109-3ac671b690e6/go.mod h1:7WNk8xUWATTG90jxEwKsP5/+5PZteCwS79JYzcpsx/8=
 github.com/tklauser/go-sysconf v0.3.11 h1:89WgdJhk5SNwJfu+GKyYveZ4IaJ7xAkecBo+KdJV0CM=
 github.com/tklauser/go-sysconf v0.3.11/go.mod h1:GqXfhXY3kiPa0nAXPDIQIWzJbMCB7AmcWpGR8lSZfqI=
 github.com/tklauser/numcpus v0.6.0 h1:kebhY2Qt+3U6RNK7UqpYNA+tJ23IBEGKkB7JQBfDYms=

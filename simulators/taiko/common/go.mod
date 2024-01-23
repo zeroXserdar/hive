@@ -1,4 +1,4 @@
-module github.com/ethereum/hive/simulators/taiko/common
+module github.com/taikoxyz/hive/simulators/taiko/common
 
 go 1.18
 

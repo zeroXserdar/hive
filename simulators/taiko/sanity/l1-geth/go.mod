@@ -1,12 +1,12 @@
-module github.com/ethereum/hive/simulators/taiko/sanity/l1-geth
+module github.com/taikoxyz/hive/simulators/taiko/sanity/l1-geth
 
 go 1.18
 
-replace github.com/ethereum/hive/simulators/taiko/common => ../../common
+//replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common
 
 require (
 	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
-	github.com/ethereum/hive/simulators/taiko/common v0.0.0
+	//github.com/taikoxyz/hive/simulators/taiko/common v0.0.0
 )
 
 require (

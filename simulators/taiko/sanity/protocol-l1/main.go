@@ -2,12 +2,17 @@ package main
 
 import (
 	"context"
+	"fmt"
+	"github.com/ethereum/go-ethereum/rpc"
 	"github.com/ethereum/hive/hivesim"
 	"github.com/ethereum/hive/simulators/taiko/common/clients"
 	el "github.com/ethereum/hive/simulators/taiko/common/config/execution"
 	"github.com/ethereum/hive/simulators/taiko/common/testnet"
 	tn "github.com/ethereum/hive/simulators/taiko/common/testnet"
 	"math/big"
+	"net/http"
+	"strconv"
+	"time"
 )
 
 var (
@@ -31,6 +36,9 @@ func main() {
 			if len(c.L1ExecutionClient) != 1 {
 				t.Fatal("choose 1 l1_client client type")
 			}
+			if len(c.L1L2ProtocolDeployerClient) != 1 {
+				t.Fatal("choose 1 l1l2_protocol_deployer client type")
+			}
 			for _, node := range c.Combinations() {
 				env := &testnet.Environment{
 					Clients: c,
@@ -44,10 +52,12 @@ func main() {
 				}
 
 				ctx := context.Background()
-				_ = tn.StartTestnet(ctx, t, env, &config)
+				testnetInstance := tn.StartTestnet(ctx, t, env, &config)
+				testnetInstance.Logf("testnet started")
+				//time.Sleep(10 * time.Second)
+				chainId31336(t, testnetInstance)
 			}
 
-			chainId31336(t, c)
 		},
 	})
 
@@ -55,22 +65,35 @@ func main() {
 	hivesim.MustRun(sim, suite)
 }
 
-func chainId31336(t *hivesim.T, c *clients.ClientDefinitionsByRole) {
-	//_, cancel := context.WithTimeout(context.Background(), 60*time.Second)
-	//defer cancel()
-	//
-	//chainIdString := ""
-	//err := c.RPC().Call(&chainIdString, "eth_chainId")
-	//if err != nil {
-	//	t.Fatal(err)
-	//}
-	//
-	//chainId, err := strconv.ParseInt(chainIdString, 0, 0)
-	//if err != nil {
-	//	fmt.Println("Error: %e", err)
-	//	return
-	//}
-	//if chainId != 31336 {
-	//	t.Fatalf("ChainId is not equal 31336, it is %i", chainId)
-	//}
+func chainId31336(t *hivesim.T, testnetInstance *testnet.Testnet) {
+	_, cancel := context.WithTimeout(context.Background(), 60*time.Second)
+	defer cancel()
+
+	l1_client := testnetInstance.ExecutionClients().Running()[0]
+
+	client := &http.Client{}
+
+	userRPCAddress, err := l1_client.UserRPCAddress()
+	if err != nil {
+		t.Fatal(err)
+	}
+	ethRpcClient, err := rpc.DialHTTPWithClient(userRPCAddress, client)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	chainIdString := ""
+	err = ethRpcClient.Call(&chainIdString, "eth_chainId")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	chainId, err := strconv.ParseInt(chainIdString, 0, 0)
+	if err != nil {
+		fmt.Println("Error: %e", err)
+		return
+	}
+	if chainId != 31336 {
+		t.Fatalf("ChainId is not equal 31336, it is %i", chainId)
+	}
 }

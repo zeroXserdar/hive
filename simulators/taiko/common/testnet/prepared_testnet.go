@@ -19,8 +19,9 @@ import (
 
 	"github.com/ethereum/hive/hivesim"
 	"github.com/ethereum/hive/simulators/taiko/common/clients"
-	el "github.com/ethereum/hive/simulators/taiko/common/config/execution"
-	exec_client "github.com/marioevz/eth-clients/clients/execution"
+	execution "github.com/ethereum/hive/simulators/taiko/common/config/execution"
+	execution_client "github.com/taikoxyz/hive-taiko-clients/clients/execution"
+	protocol_deployer_client "github.com/taikoxyz/hive-taiko-clients/clients/taiko/protocol_deployer"
 )
 
 var (
@@ -41,8 +42,8 @@ type PreparedTestnet struct {
 	//spec *common.Spec
 
 	// Execution chain configuration and genesis info
-	L1ExecutionClientGenesis *el.ExecutionGenesis
-	L2ExecutionClientGenesis *el.ExecutionGenesis
+	L1ExecutionClientGenesis *execution.ExecutionGenesis
+	L2ExecutionClientGenesis *execution.ExecutionGenesis
 
 	// Consensus genesis state
 	//eth2Genesis common.BeaconState
@@ -102,7 +103,7 @@ func prepareTestnet(
 	}
 
 	// Generate genesis for execution clients
-	eth1Genesis := el.BuildExecutionGenesis(
+	eth1Genesis := execution.BuildExecutionGenesis(
 		config.TerminalTotalDifficulty,
 		uint64(l1ExecutionClientGenesisTime),
 		config.L1ExecutionConsensus,
@@ -113,7 +114,7 @@ func prepareTestnet(
 		eth1Genesis.Genesis.BaseFee = config.InitialBaseFeePerGas
 	}
 	eth1ConfigOpt := eth1Genesis.ToParams(depositAddress)
-	eth1Bundle, err := el.ExecutionBundle(eth1Genesis.Genesis)
+	eth1Bundle, err := execution.ExecutionBundle(eth1Genesis.Genesis)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -193,7 +194,7 @@ func prepareTestnet(
 	//}
 	tdd, _ := uint256.FromBig(config.TerminalTotalDifficulty)
 	spec.Config.TERMINAL_TOTAL_DIFFICULTY = view.Uint256View(*tdd)
-	if el.IsEth1GenesisPostMerge(eth1Genesis.Genesis) {
+	if execution.IsEth1GenesisPostMerge(eth1Genesis.Genesis) {
 		genesisBlock := eth1Genesis.Genesis.ToBlock()
 		spec.Config.TERMINAL_BLOCK_HASH = tree.Root(
 			genesisBlock.Hash(),
@@ -329,16 +330,16 @@ func (p *PreparedTestnet) createTestnet(t *hivesim.T) *Testnet {
 	}
 }
 
-// Prepares an execution client object with all the necessary information
+// Prepares an L1 execution client object with all the necessary information
 // to start
-func (p *PreparedTestnet) prepareExecutionNode(
+func (p *PreparedTestnet) prepareL1ExecutionNode(
 	parentCtx context.Context,
 	testnet *Testnet,
 	eth1Def *hivesim.ClientDefinition,
-	consensus el.ExecutionConsensus,
+	consensus execution.ExecutionConsensus,
 	chain []*types.Block,
-	config exec_client.ExecutionClientConfig,
-) *exec_client.ExecutionClient {
+	config execution_client.ExecutionClientConfig,
+) *execution_client.ExecutionClient {
 	testnet.Logf(
 		"Preparing execution node: %s (%s)",
 		eth1Def.Name,
@@ -357,7 +358,7 @@ func (p *PreparedTestnet) prepareExecutionNode(
 		opts := []hivesim.StartOption{p.L1ExecutionOpts}
 		opts = append(opts, consensus.HiveParams(config.ClientIndex))
 
-		currentlyRunningEcs := testnet.ExecutionClients().
+		currentlyRunningEcs := testnet.L1ExecutionClients().
 			Running().
 			Subnet(config.Subnet)
 		if len(currentlyRunningEcs) > 0 {
@@ -402,7 +403,7 @@ func (p *PreparedTestnet) prepareExecutionNode(
 
 		if len(chain) > 0 {
 			// Bundle the chain into the container
-			chainParam, err := el.ChainBundle(chain)
+			chainParam, err := execution.ChainBundle(chain)
 			if err != nil {
 				return nil, err
 			}
@@ -411,11 +412,223 @@ func (p *PreparedTestnet) prepareExecutionNode(
 		return opts, nil
 	}
 
-	return &exec_client.ExecutionClient{
+	testnet.Logf(
+		"Finished preparing execution node: %s (%s)",
+		eth1Def.Name,
+		eth1Def.Version,
+	)
+
+	return &execution_client.ExecutionClient{
 		Client: cm,
 		Logger: testnet.T,
 		Config: config,
 	}
+}
+
+// Prepares an L2 execution client object with all the necessary information
+// to start
+func (p *PreparedTestnet) prepareL2ExecutionNode(
+	parentCtx context.Context,
+	testnet *Testnet,
+	eth1Def *hivesim.ClientDefinition,
+	consensus execution.ExecutionConsensus,
+	chain []*types.Block,
+	config execution_client.ExecutionClientConfig,
+) *execution_client.ExecutionClient {
+	testnet.Logf(
+		"Preparing execution node: %s (%s)",
+		eth1Def.Name,
+		eth1Def.Version,
+	)
+
+	cm := &clients.HiveManagedClient{
+		T:                    testnet.T,
+		HiveClientDefinition: eth1Def,
+	}
+
+	// This method will return the options used to run the client.
+	// Requires a method that returns the rest of the currently running
+	// execution clients on the network at startup.
+	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
+		opts := []hivesim.StartOption{p.L1ExecutionOpts}
+		opts = append(opts, consensus.HiveParams(config.ClientIndex))
+
+		currentlyRunningEcs := testnet.L2ExecutionClients().
+			Running().
+			Subnet(config.Subnet)
+		if len(currentlyRunningEcs) > 0 {
+			bootnode, err := currentlyRunningEcs.Enodes()
+			if err != nil {
+				return nil, err
+			}
+
+			// Make the client connect to the first eth1 node, as a bootnode for the eth1 net
+			opts = append(opts, hivesim.Params{"HIVE_BOOTNODE": bootnode})
+		}
+		opts = append(
+			opts,
+			hivesim.Params{
+				"HIVE_TERMINAL_TOTAL_DIFFICULTY": fmt.Sprintf(
+					"%d",
+					config.TerminalTotalDifficulty,
+				),
+			},
+		)
+		genesis := testnet.ExecutionGenesis().ToBlock()
+		if config.TerminalTotalDifficulty <= genesis.Difficulty().Int64() {
+			opts = append(
+				opts,
+				hivesim.Params{
+					"HIVE_TERMINAL_BLOCK_HASH": fmt.Sprintf(
+						"%s",
+						genesis.Hash(),
+					),
+				},
+			)
+			opts = append(
+				opts,
+				hivesim.Params{
+					"HIVE_TERMINAL_BLOCK_NUMBER": fmt.Sprintf(
+						"%d",
+						genesis.NumberU64(),
+					),
+				},
+			)
+		}
+
+		if len(chain) > 0 {
+			// Bundle the chain into the container
+			chainParam, err := execution.ChainBundle(chain)
+			if err != nil {
+				return nil, err
+			}
+			opts = append(opts, chainParam)
+		}
+		return opts, nil
+	}
+
+	testnet.Logf(
+		"Finished preparing execution node: %s (%s)",
+		eth1Def.Name,
+		eth1Def.Version,
+	)
+
+	return &execution_client.ExecutionClient{
+		Client: cm,
+		Logger: testnet.T,
+		Config: config,
+	}
+}
+
+func (p *PreparedTestnet) prepareL1L2ProtocolDeployerNode(
+	parentCtx context.Context,
+	testnet *Testnet,
+	protocolDeployerDef *hivesim.ClientDefinition,
+	config protocol_deployer_client.ProtocolDeployerClientConfig,
+	l1ExecutionClientEndpoint *execution_client.ExecutionClient,
+	l2ExecutionClientEndpoint *execution_client.ExecutionClient,
+) *protocol_deployer_client.ProtocolDeployerClient {
+	testnet.Logf(
+		"Preparing protocol deployer node: %s (%s)",
+		protocolDeployerDef.Name,
+		protocolDeployerDef.Version,
+	)
+
+	if l1ExecutionClientEndpoint == nil && l2ExecutionClientEndpoint == nil {
+		panic(fmt.Errorf("at least 1 (l1/l2) execution client endpoint is required"))
+	}
+
+	cm := &clients.HiveManagedClient{
+		T:                    testnet.T,
+		HiveClientDefinition: protocolDeployerDef,
+	}
+
+	cl := &protocol_deployer_client.ProtocolDeployerClient{
+		Client: cm,
+		Logger: testnet.T,
+		Config: config,
+	}
+
+	//if enableBuilders {
+	//	simIP, err := testnet.T.Sim.ContainerNetworkIP(
+	//		testnet.T.SuiteID,
+	//		"bridge",
+	//		"simulation",
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//
+	//	options := []mock_builder.Option{
+	//		mock_builder.WithExternalIP(net.ParseIP(simIP)),
+	//		mock_builder.WithPort(
+	//			mock_builder.DEFAULT_BUILDER_PORT + config.ClientIndex,
+	//		),
+	//		mock_builder.WithID(config.ClientIndex),
+	//		mock_builder.WithBeaconGenesisTime(testnet.genesisTime),
+	//		mock_builder.WithSpec(p.spec),
+	//	}
+	//
+	//	if builderOptions != nil {
+	//		options = append(options, builderOptions...)
+	//	}
+	//
+	//	cl.Builder, err = mock_builder.NewMockBuilder(
+	//		context.Background(),
+	//		eth1Endpoints[0],
+	//		cl,
+	//		options...,
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//}
+
+	// This method will return the options used to run the client.
+	// Requires a method that returns the rest of the currently running
+	// beacon clients on the network at startup.
+	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
+		opts := []hivesim.StartOption{p.L1L2ProtocolDeployerOpts}
+
+		var deploymentTargetExecutionClient execution_client.ExecutionClient
+		if l1ExecutionClientEndpoint != nil {
+			deploymentTargetExecutionClient = *l1ExecutionClientEndpoint
+		} else {
+			deploymentTargetExecutionClient = *l2ExecutionClientEndpoint
+		}
+
+		if !deploymentTargetExecutionClient.IsRunning() || deploymentTargetExecutionClient.Proxy() == nil {
+			return nil, fmt.Errorf(
+				"attempted to start protocol deployment node when the execution client is not yet running",
+			)
+		}
+		execNode := deploymentTargetExecutionClient.Proxy()
+		userRPC, err := execNode.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"execution client node used for protocol deployment without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"MAINNET_URL": userRPC,
+		})
+
+		//opts = append(
+		//	opts,
+		//	hivesim.Params{
+		//		"HIVE_TERMINAL_TOTAL_DIFFICULTY": fmt.Sprintf(
+		//			"%d",
+		//			config.TerminalTotalDifficulty,
+		//		),
+		//	},
+		//)
+
+		return opts, nil
+	}
+
+	return cl
 }
 
 // Prepares a beacon client object with all the necessary information
@@ -427,7 +640,7 @@ func (p *PreparedTestnet) prepareExecutionNode(
 //	enableBuilders bool,
 //	builderOptions []mock_builder.Option,
 //	config beacon_client.BeaconClientConfig,
-//	eth1Endpoints ...*exec_client.ExecutionClient,
+//	eth1Endpoints ...*execution_client.ExecutionClient,
 //) *beacon_client.BeaconClient {
 //	testnet.Logf(
 //		"Preparing beacon node: %s (%s)",
@@ -439,7 +652,7 @@ func (p *PreparedTestnet) prepareExecutionNode(
 //		panic(fmt.Errorf("at least 1 execution endpoint is required"))
 //	}
 //
-//	cm := &clients.HiveManagedClient{
+//	cm := &prot_depl_clients.HiveManagedClient{
 //		T:                    testnet.T,
 //		HiveClientDefinition: beaconDef,
 //	}
@@ -602,7 +815,7 @@ func (p *PreparedTestnet) prepareExecutionNode(
 //	}
 //	keys := p.keyTranches[keyIndex]
 //
-//	cm := &clients.HiveManagedClient{
+//	cm := &prot_depl_clients.HiveManagedClient{
 //		T:                    testnet.T,
 //		HiveClientDefinition: validatorDef,
 //	}

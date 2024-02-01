@@ -1,13 +1,14 @@
 package testnet
 
 import (
+	//mock_builder "github.com/marioevz/mock-builder/mock"
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/hive/simulators/taiko/common/clients"
 	execution_config "github.com/ethereum/hive/simulators/taiko/common/config/execution"
-	mock_builder "github.com/marioevz/mock-builder/mock"
+	//mock_builder "github.com/marioevz/mock-builder/mock"
 )
 
 var (
@@ -47,8 +48,8 @@ type Config struct {
 	GenesisExecutionAccounts map[common.Address]core.GenesisAccount `json:"genesis_execution_accounts,omitempty"`
 
 	// Builders
-	EnableBuilders bool                  `json:"enable_builders,omitempty"`
-	BuilderOptions []mock_builder.Option `json:"builder_options,omitempty"`
+	EnableBuilders bool `json:"enable_builders,omitempty"`
+	//BuilderOptions []mock_builder.Option `json:"builder_options,omitempty"`
 }
 
 // Choose a configuration value. `b` takes precedence

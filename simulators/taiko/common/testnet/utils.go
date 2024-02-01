@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/marioevz/eth-clients/clients/node"
+	"github.com/taikoxyz/hive-taiko-clients/clients/taiko/node"
 )
 
 // result object used to get a result/error from each node
@@ -78,7 +78,7 @@ func (rs resultsArr) AllDone() bool {
 	return true
 }
 
-func makeResults(nodes node.Nodes, maxErr int) resultsArr {
+func makeResults(nodes node.TaikoNodes, maxErr int) resultsArr {
 	res := make(resultsArr, len(nodes))
 	for i, n := range nodes {
 		r := result{

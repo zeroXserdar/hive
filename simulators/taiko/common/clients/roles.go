@@ -88,5 +88,8 @@ func (c *ClientDefinitionsByRole) Combinations() NodeDefinitions {
 		NodeDefinition{
 			L1ExecutionClient: c.L1ExecutionClient[0].Name,
 		})
+	if len(c.L1L2ProtocolDeployerClient) == 1 {
+		nodes[0].L1L2ProtocolDeployerClient = c.L1L2ProtocolDeployerClient[0].Name
+	}
 	return nodes
 }

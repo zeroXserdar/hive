@@ -5,7 +5,7 @@ import (
 	"net"
 
 	"github.com/ethereum/hive/hivesim"
-	"github.com/marioevz/eth-clients/clients"
+	"github.com/taikoxyz/hive-taiko-clients/clients"
 )
 
 var _ clients.ManagedClient = &HiveManagedClient{}
@@ -84,4 +84,18 @@ func (h *HiveManagedClient) GetEnodeURL() (string, error) {
 
 func (h *HiveManagedClient) ClientType() string {
 	return h.HiveClientDefinition.Name
+}
+
+func (h *HiveManagedClient) GetHost() string {
+	if h.hiveClient == nil {
+		return ""
+	}
+	return h.hiveClient.IP.String()
+}
+
+func (h *HiveManagedClient) GetAddress() string {
+	if h.hiveClient == nil {
+		return ""
+	}
+	return h.hiveClient.IP.String()
 }

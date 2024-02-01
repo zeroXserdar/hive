@@ -1,12 +1,17 @@
-module github.com/taikoxyz/hive/simulators/taiko/sanity-l1-geth
+module github.com/taikoxyz/hive/simulators/taiko/sanity/l1-geth
 
 go 1.18
 
-replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123222109-3ac671b690e6
+//replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common
+//replace github.com/ethereum/hive/simulators/taiko/common => /source/common
+//replace github.com/ethereum/hive/simulators/taiko/common => ../../common
+replace github.com/ethereum/go-ethereum v1.13.1 => github.com/ethereum/go-ethereum v1.11.5
 
 require (
+	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367 // indirect
+	github.com/ethereum/go-ethereum v1.11.5
 	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
-	github.com/ethereum/hive/simulators/taiko/common v0.0.0-00010101000000-000000000000
+	//github.com/taikoxyz/hive/simulators/taiko/common
 )
 
 require (
@@ -30,7 +35,6 @@ require (
 	github.com/cockroachdb/redact v1.1.3 // indirect
 	github.com/deckarep/golang-set/v2 v2.3.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.1.0 // indirect
-	github.com/ethereum/go-ethereum v1.11.5 // indirect
 	github.com/getsentry/sentry-go v0.20.0 // indirect
 	github.com/gofrs/flock v0.8.1 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
@@ -47,8 +51,8 @@ require (
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
-	github.com/marioevz/eth-clients v0.0.0-20230503173323-98293c926363 // indirect
-	github.com/marioevz/mock-builder v0.0.0-20230515180219-3b0b5c3eefe3 // indirect
+	//github.com/marioevz/eth-clients v0.0.0-20230503173323-98293c926363 // indirect
+	//github.com/marioevz/mock-builder v0.0.0-20230515180219-3b0b5c3eefe3 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/minio/sha256-simd v1.0.0 // indirect

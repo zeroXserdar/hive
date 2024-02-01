@@ -57,7 +57,7 @@ func (n *NodeDefinition) L2ExecutionClientName() string {
 	return n.L2ExecutionClient
 }
 
-func (n *NodeDefinition) L1L2ProtoocolDeployerClientName() string {
+func (n *NodeDefinition) L1L2ProtocolDeployerClientName() string {
 	return n.L1L2ProtocolDeployerClient
 }
 

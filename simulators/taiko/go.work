@@ -2,8 +2,10 @@ go 1.18
 
 use (
 	./common
-	./engine
-	./testnet
-	./withdrawals
-	./sanity-l1-geth
+	//./engine
+	//./testnet
+	//./withdrawals
+	//./sanity-l1-geth
+	./sanity/l1-geth
+	./sanity/protocol-l1
 )

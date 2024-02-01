@@ -1,4 +1,4 @@
-module github.com/ethereum/hive
+module github.com/taikoxyz/hive
 
 go 1.20
 

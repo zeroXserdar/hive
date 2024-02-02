@@ -1,6 +1,6 @@
 package clients
 
-import "github.com/ethereum/hive/hivesim"
+import "github.com/taikoxyz/hive/hivesim"
 
 type ClientDefinitionsByRole struct {
 	L1ExecutionClient          []*hivesim.ClientDefinition `json:"l1_client"`

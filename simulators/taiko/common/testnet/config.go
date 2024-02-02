@@ -6,8 +6,8 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/hive/simulators/taiko/common/clients"
-	execution_config "github.com/ethereum/hive/simulators/taiko/common/config/execution"
+	"github.com/taikoxyz/hive/simulators/taiko/common/clients"
+	execution_config "github.com/taikoxyz/hive/simulators/taiko/common/config/execution"
 	//mock_builder "github.com/marioevz/mock-builder/mock"
 )
 

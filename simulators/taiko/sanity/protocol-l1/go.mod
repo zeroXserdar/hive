@@ -4,14 +4,12 @@ go 1.18
 
 //replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240123222109-3ac671b690e6
 //replace github.com/ethereum/hive/simulators/taiko/common => /source/common
-replace github.com/ethereum/hive/simulators/taiko/common => ../../common
+replace github.com/taikoxyz/hive/simulators/taiko/common => ../../common
 replace github.com/ethereum/go-ethereum v1.13.1 => github.com/ethereum/go-ethereum v1.11.5
 
 require (
 	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367
 	github.com/ethereum/go-ethereum v1.11.5
-	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
-	github.com/ethereum/hive/simulators/taiko/common v0.0.0-00010101000000-000000000000
 )
 
 require (

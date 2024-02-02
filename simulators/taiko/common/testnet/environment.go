@@ -1,7 +1,7 @@
 package testnet
 
 import (
-	"github.com/ethereum/hive/simulators/taiko/common/clients"
+	"github.com/taikoxyz/hive/simulators/taiko/common/clients"
 )
 
 type Environment struct {

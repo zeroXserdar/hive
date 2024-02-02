@@ -337,14 +337,6 @@ github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3 h1:i4TE0Dm
 github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3/go.mod h1:yMTu38GSuyxaYzQMViqNmQ1s3cE84abZexQmTgenWk0=
 github.com/ethereum/go-ethereum v1.13.8 h1:1od+thJel3tM52ZUNQwvpYOeRHlbkVFZ5S8fhi0Lgsg=
 github.com/ethereum/go-ethereum v1.13.8/go.mod h1:sc48XYQxCzH3fG9BcrXCOOgQk2JfZzNAmIKnceogzsA=
-github.com/ethereum/hive v0.0.0-20221028130025-473d051e991a h1:GIUCV8PoMNrfrNeWI7lPNXkzNxDGC+UVqT7HrZefi74=
-github.com/ethereum/hive v0.0.0-20221028130025-473d051e991a/go.mod h1:G8XiiUErpj6++yb93r6y6T1nWBh4Bgoi3QFwUSbzt/U=
-github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d h1:aYS/z/WooDYsJKpOoZ/ha8Zg+CwSf9Kp1919rnmmC0s=
-github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d/go.mod h1:zKL2DscVzRusnGVpseAvLrXGJ3qrGHuSfOIrv4JfnRk=
-github.com/ethereum/hive/hiveproxy v0.0.0-20230313101845-c7dfe88c8138 h1:Y74Ksk90DLCMWnpOfOEWRLxVjsf/67vY+hX5kWu9UY0=
-github.com/ethereum/hive/hiveproxy v0.0.0-20230313101845-c7dfe88c8138/go.mod h1:1LWNU6/EYsIOXZGa2KdklD1ET77gLTeEyhq+WTZ+37o=
-github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d h1:gvP03hTWxVwiI7oeQvtGSnBYDvx+3baNzGMrucyXIQQ=
-github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d/go.mod h1:0tWUtPhJgk9z3K41wqHV0IYY6/jJWOlfo4rI4v3Mr1E=
 github.com/evanphx/json-patch v4.9.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/fasthttp-contrib/websocket v0.0.0-20160511215533-1f3b11f56072/go.mod h1:duJ4Jxv5lDcvg4QuQr0oowTf7dz4/CR8NtyCooz9HL8=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
@@ -903,10 +895,6 @@ github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a h1:1ur3QoCqvE5f
 github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a/go.mod h1:RRCYJbIwD5jmqPI9XoAFR0OcDxqUctll6zUj/+B4S48=
 github.com/syndtr/goleveldb v1.0.1-0.20220721030215-126854af5e6d h1:vfofYNRScrDdvS342BElfbETmL1Aiz3i2t0zfRj16Hs=
 github.com/syndtr/goleveldb v1.0.1-0.20220721030215-126854af5e6d/go.mod h1:RRCYJbIwD5jmqPI9XoAFR0OcDxqUctll6zUj/+B4S48=
-github.com/taikoxyz/hive v0.0.0-20231227102357-b9813b36886d h1:NkhbX6qEWIlf4CcHQpm916Ck/tmtmzHbcxg89E7r46U=
-github.com/taikoxyz/hive v0.0.0-20231227102357-b9813b36886d/go.mod h1:lT6CsiAFb+HTThYzu3veK2x2/BlazxNQD6KWPDlvjfo=
-github.com/taikoxyz/hive/taiko v0.0.0-20231227102357-b9813b36886d h1:Vns32h6n697tP9L6kS860iIGy/7Q38cNgjBspLR5RIY=
-github.com/taikoxyz/hive/taiko v0.0.0-20231227102357-b9813b36886d/go.mod h1:nvNuMzSp2yWoNh9jLBGIL7/bIxMF8fddsil/axDawbM=
 github.com/taikoxyz/taiko-client v0.18.0 h1:Hy5p3T2rjA1wCDe+yyroWvhF520QvqrmtRByMR9T39Y=
 github.com/taikoxyz/taiko-client v0.18.0/go.mod h1:GIuSM4IviGsjcWF2ZFtaIwYNd084Kt7xJuq00f5xkHg=
 github.com/taikoxyz/taiko-client v0.18.1-0.20231227043840-e294b0bfb8cd h1:1cnpEZVMJoldAG3F1vcXg6Y1wlJSpRWjc/0q9GQfS68=

@@ -6,7 +6,7 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/core/types"
-	cg "github.com/ethereum/hive/simulators/taiko/common/chain_generators"
+	cg "github.com/taikoxyz/hive/simulators/taiko/common/chain_generators"
 )
 
 // Describe a node setup, which consists of:

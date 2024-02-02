@@ -6,7 +6,7 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/state"
 	"github.com/ethereum/go-ethereum/core/types"
-	execution_config "github.com/ethereum/hive/simulators/taiko/common/config/execution"
+	execution_config "github.com/taikoxyz/hive/simulators/taiko/common/config/execution"
 )
 
 var Defaults = ethash.Config{

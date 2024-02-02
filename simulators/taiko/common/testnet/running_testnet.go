@@ -22,8 +22,8 @@ import (
 	"github.com/protolambda/zrnt/eth2/util/math"
 	"github.com/protolambda/ztyp/tree"
 
-	"github.com/ethereum/hive/hivesim"
-	execution_config "github.com/ethereum/hive/simulators/taiko/common/config/execution"
+	"github.com/taikoxyz/hive/hivesim"
+	execution_config "github.com/taikoxyz/hive/simulators/taiko/common/config/execution"
 
 	//beacon_client "github.com/taikoxyz/hive-taiko-clients/clients/beacon"
 	exec_client "github.com/taikoxyz/hive-taiko-clients/clients/execution"

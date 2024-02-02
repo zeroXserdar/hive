@@ -10,14 +10,14 @@ import (
 
 	blsu "github.com/protolambda/bls12-381-util"
 
-	"github.com/ethereum/hive/hivesim"
-	"github.com/ethereum/hive/simulators/taiko/common/config"
 	"github.com/google/uuid"
 	hbls "github.com/herumi/bls-eth-go-binary/bls"
 	"github.com/pkg/errors"
 	"github.com/protolambda/go-keystorev4"
 	"github.com/protolambda/zrnt/eth2/beacon/common"
 	"github.com/taikoxyz/hive-taiko-clients/clients/validator"
+	"github.com/taikoxyz/hive/hivesim"
+	"github.com/taikoxyz/hive/simulators/taiko/common/config"
 	"github.com/tyler-smith/go-bip39"
 	util "github.com/wealdtech/go-eth2-util"
 )

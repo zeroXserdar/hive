@@ -10,8 +10,8 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/hive/hivesim"
-	"github.com/ethereum/hive/simulators/taiko/common/config"
+	"github.com/taikoxyz/hive/hivesim"
+	"github.com/taikoxyz/hive/simulators/taiko/common/config"
 )
 
 // The runtime deposit contract code, along with the storage that would otherwise have been initialized

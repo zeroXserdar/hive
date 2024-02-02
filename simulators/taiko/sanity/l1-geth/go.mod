@@ -2,25 +2,49 @@ module github.com/taikoxyz/hive/simulators/taiko/sanity/l1-geth
 
 go 1.18
 
-//replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common
+//replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240201000529-a8fe1d5d971d
 //replace github.com/ethereum/hive/simulators/taiko/common => /source/common
-//replace github.com/ethereum/hive/simulators/taiko/common => ../../common
+//replace github.com/taikoxyz/hive/simulators/taiko/common => ../../common
+replace github.com/taikoxyz/hive/ => ../../../../
 replace github.com/ethereum/go-ethereum v1.13.1 => github.com/ethereum/go-ethereum v1.11.5
 
 require (
+	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
+	//github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
 	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367 // indirect
-	github.com/ethereum/go-ethereum v1.11.5
-	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
-	//github.com/taikoxyz/hive/simulators/taiko/common
+//github.com/taikoxyz/hive/simulators/taiko/common
+//	github.com/taikoxyz/hive v0.0.0-20240201000529-a8fe1d5d971d
+
 )
 
 require (
+	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
+	github.com/Microsoft/go-winio v0.6.1 // indirect
+	github.com/containerd/containerd v1.6.18 // indirect
+	github.com/docker/docker v24.0.7+incompatible // indirect
+	github.com/docker/go-connections v0.4.0 // indirect
+	github.com/docker/go-units v0.5.0 // indirect
+	github.com/fsouza/go-dockerclient v1.9.8 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
+	github.com/hashicorp/yamux v0.1.1 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/moby/patternmatcher v0.6.0 // indirect
+	github.com/moby/sys/sequential v0.5.0 // indirect
+	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
+	github.com/morikuni/aec v1.0.0 // indirect
+	github.com/opencontainers/go-digest v1.0.0 // indirect
+	github.com/opencontainers/image-spec v1.0.3-0.20211202183452-c5a74bcca799 // indirect
+	github.com/opencontainers/runc v1.1.5 // indirect
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
-	github.com/tklauser/go-sysconf v0.3.11 // indirect
-	golang.org/x/sys v0.7.0 // indirect
+	//github.com/taikoxyz/hive v0.0.0-20240201110747-dbb9606a9bd8 // indirect
+	github.com/tklauser/go-sysconf v0.3.12 // indirect
+	golang.org/x/mod v0.12.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
+	golang.org/x/tools v0.13.0 // indirect
+	gopkg.in/inconshreveable/log15.v2 v2.0.0-20200109203555-b30bc20e4fd1 // indirect
 )
 
 require (
@@ -31,7 +55,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/cockroachdb/errors v1.9.1 // indirect
 	github.com/cockroachdb/logtags v0.0.0-20230118201751-21c54148d20b // indirect
-	github.com/cockroachdb/pebble v0.0.0-20230404150825-93eff0a72e22 // indirect
+	github.com/cockroachdb/pebble v0.0.0-20230928194634-aa077af62593 // indirect
 	github.com/cockroachdb/redact v1.1.3 // indirect
 	github.com/deckarep/golang-set/v2 v2.3.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.1.0 // indirect
@@ -44,7 +68,7 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/holiman/bloomfilter/v2 v2.0.3 // indirect
-	github.com/holiman/uint256 v1.2.2 // indirect
+	github.com/holiman/uint256 v1.2.3 // indirect
 	github.com/julienschmidt/httprouter v1.3.0 // indirect
 	github.com/kilic/bls12-381 v0.1.0 // indirect
 	github.com/klauspost/compress v1.16.3 // indirect
@@ -70,11 +94,11 @@ require (
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.10.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
-	github.com/tklauser/numcpus v0.6.0 // indirect
+	github.com/tklauser/numcpus v0.6.1 // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
-	golang.org/x/crypto v0.7.0 // indirect
-	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
-	golang.org/x/text v0.8.0 // indirect
+	golang.org/x/crypto v0.14.0 // indirect
+	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
+	golang.org/x/text v0.13.0 // indirect
 	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect

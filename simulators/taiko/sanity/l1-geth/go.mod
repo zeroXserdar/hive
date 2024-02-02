@@ -15,39 +15,17 @@ replace github.com/cockroachdb/pebble => github.com/cockroachdb/pebble v0.0.0-20
 require (
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
 	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
-	github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f
-	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117
-	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240202083617-c9e28f81780f
+	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240202100531-e788dd38dbe1
 
 )
 
 require (
-	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
-	github.com/Microsoft/go-winio v0.6.1 // indirect
-	github.com/containerd/containerd v1.6.18 // indirect
-	github.com/docker/docker v24.0.7+incompatible // indirect
-	github.com/docker/go-connections v0.4.0 // indirect
-	github.com/docker/go-units v0.5.0 // indirect
-	github.com/fsouza/go-dockerclient v1.9.8 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
-	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
-	github.com/mattn/go-isatty v0.0.17 // indirect
-	github.com/moby/patternmatcher v0.6.0 // indirect
-	github.com/moby/sys/sequential v0.5.0 // indirect
-	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
-	github.com/morikuni/aec v1.0.0 // indirect
-	github.com/opencontainers/go-digest v1.0.0 // indirect
-	github.com/opencontainers/image-spec v1.0.3-0.20211202183452-c5a74bcca799 // indirect
-	github.com/opencontainers/runc v1.1.5 // indirect
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
-	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/sys v0.13.0 // indirect
-	golang.org/x/tools v0.13.0 // indirect
-	gopkg.in/inconshreveable/log15.v2 v2.0.0-20200109203555-b30bc20e4fd1 // indirect
 )
 
 require (
@@ -67,7 +45,6 @@ require (
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/golang/snappy v0.0.5-0.20220116011046-fa5810519dcb // indirect
-	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/holiman/bloomfilter/v2 v2.0.3 // indirect
 	github.com/holiman/uint256 v1.2.3 // indirect
@@ -106,20 +83,7 @@ require (
 
 require (
 	github.com/cockroachdb/pebble v0.0.0-20230928194634-aa077af62593 // indirect
-	github.com/cockroachdb/tokenbucket v0.0.0-20230807174530-cc333fc44b06 // indirect
-	github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d // indirect
-	github.com/ethereum/hive/simulators/eth2/common v0.0.0-20240201132817-df7a0503bc34 // indirect
-	github.com/ferranbt/fastssz v0.1.3 // indirect
-	github.com/google/uuid v1.3.0 // indirect
-	github.com/herumi/bls-eth-go-binary v1.29.1 // indirect
-	github.com/lithammer/dedent v1.1.0 // indirect
-	github.com/marioevz/eth-clients v0.0.0-20231123180401-b4230c802498 // indirect
-	github.com/marioevz/mock-builder v0.0.0-20230515180219-3b0b5c3eefe3 // indirect
-	github.com/mitchellh/mapstructure v1.5.0 // indirect
-	github.com/protolambda/go-keystorev4 v0.0.0-20211007151826-f20444f6d564 // indirect
-	github.com/tyler-smith/go-bip39 v1.1.0 // indirect
-	github.com/wealdtech/go-bytesutil v1.2.1 // indirect
-	github.com/wealdtech/go-eth2-types/v2 v2.8.1 // indirect
-	github.com/wealdtech/go-eth2-util v1.8.1 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
+	github.com/rs/cors v1.8.3 // indirect
+	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117 // indirect
+	golang.org/x/net v0.17.0 // indirect
 )

@@ -2,9 +2,9 @@ module github.com/taikoxyz/hive/simulators/taiko/sanity/l1-geth
 
 go 1.18
 
-replace github.com/taikoxyz/hive/ => ../../../../
-
-replace github.com/taikoxyz/hive-taiko-clients => ../../../../../hive-taiko-clients
+//replace github.com/taikoxyz/hive/ => ../../../../
+//
+//replace github.com/taikoxyz/hive-taiko-clients => ../../../../../hive-taiko-clients
 
 replace github.com/ethereum/go-ethereum v1.13.1 => github.com/ethereum/go-ethereum v1.11.5
 
@@ -15,7 +15,9 @@ replace github.com/cockroachdb/pebble => github.com/cockroachdb/pebble v0.0.0-20
 require (
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
 	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
-//github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367 // indirect
+	github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f
+	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117
+	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240202083617-c9e28f81780f
 
 )
 
@@ -41,7 +43,6 @@ require (
 	github.com/opencontainers/runc v1.1.5 // indirect
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
-	//github.com/taikoxyz/hive v0.0.0-20240201110747-dbb9606a9bd8 // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
 	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/sys v0.13.0 // indirect
@@ -103,8 +104,6 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-require github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240115145938-e8b27477f55a
-
 require (
 	github.com/cockroachdb/pebble v0.0.0-20230928194634-aa077af62593 // indirect
 	github.com/cockroachdb/tokenbucket v0.0.0-20230807174530-cc333fc44b06 // indirect
@@ -114,11 +113,10 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/herumi/bls-eth-go-binary v1.29.1 // indirect
 	github.com/lithammer/dedent v1.1.0 // indirect
-	github.com/marioevz/eth-clients v0.0.0-20230503173323-98293c926363 // indirect
+	github.com/marioevz/eth-clients v0.0.0-20231123180401-b4230c802498 // indirect
 	github.com/marioevz/mock-builder v0.0.0-20230515180219-3b0b5c3eefe3 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/protolambda/go-keystorev4 v0.0.0-20211007151826-f20444f6d564 // indirect
-	github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f // indirect
 	github.com/tyler-smith/go-bip39 v1.1.0 // indirect
 	github.com/wealdtech/go-bytesutil v1.2.1 // indirect
 	github.com/wealdtech/go-eth2-types/v2 v2.8.1 // indirect

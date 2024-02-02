@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net"
 
+	"github.com/ethereum/hive/hivesim"
 	"github.com/taikoxyz/hive-taiko-clients/clients"
-	"github.com/taikoxyz/hive/hivesim"
 )
 
 var _ clients.ManagedClient = &HiveManagedClient{}

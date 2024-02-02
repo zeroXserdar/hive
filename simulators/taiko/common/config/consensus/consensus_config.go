@@ -5,9 +5,9 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/hive/hivesim"
 	"github.com/protolambda/zrnt/eth2/beacon/common"
 	"github.com/protolambda/ztyp/codec"
-	"github.com/taikoxyz/hive/hivesim"
 	"github.com/taikoxyz/hive/simulators/taiko/common/config"
 	"gopkg.in/yaml.v2"
 )

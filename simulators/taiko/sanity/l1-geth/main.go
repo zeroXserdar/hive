@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/taikoxyz/hive/hivesim"
+	"github.com/ethereum/hive/hivesim"
 	"github.com/taikoxyz/hive/simulators/taiko/common/clients"
 	el "github.com/taikoxyz/hive/simulators/taiko/common/config/execution"
 	"github.com/taikoxyz/hive/simulators/taiko/common/testnet"

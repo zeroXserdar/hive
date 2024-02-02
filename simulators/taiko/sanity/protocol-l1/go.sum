@@ -337,6 +337,10 @@ github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3 h1:i4TE0Dm
 github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3/go.mod h1:yMTu38GSuyxaYzQMViqNmQ1s3cE84abZexQmTgenWk0=
 github.com/ethereum/go-ethereum v1.13.8 h1:1od+thJel3tM52ZUNQwvpYOeRHlbkVFZ5S8fhi0Lgsg=
 github.com/ethereum/go-ethereum v1.13.8/go.mod h1:sc48XYQxCzH3fG9BcrXCOOgQk2JfZzNAmIKnceogzsA=
+github.com/ethereum/hive v0.0.0-20240201132817-df7a0503bc34 h1:5fiEAJmuDtACDX8as5WA1Goub4y8fkB3FpY/+A1kmao=
+github.com/ethereum/hive v0.0.0-20240201132817-df7a0503bc34/go.mod h1:D0RJuJaAolOejqq/n0YoX7VbPzkooLHwCSoaQn2z6xY=
+github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d h1:gvP03hTWxVwiI7oeQvtGSnBYDvx+3baNzGMrucyXIQQ=
+github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d/go.mod h1:0tWUtPhJgk9z3K41wqHV0IYY6/jJWOlfo4rI4v3Mr1E=
 github.com/evanphx/json-patch v4.9.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/fasthttp-contrib/websocket v0.0.0-20160511215533-1f3b11f56072/go.mod h1:duJ4Jxv5lDcvg4QuQr0oowTf7dz4/CR8NtyCooz9HL8=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
@@ -586,6 +590,7 @@ github.com/klauspost/compress v1.11.3/go.mod h1:aoV0uJVorq1K+umq18yTdKaF57EivdYs
 github.com/klauspost/compress v1.11.13/go.mod h1:aoV0uJVorq1K+umq18yTdKaF57EivdYsUV+/s2qKfXs=
 github.com/klauspost/compress v1.15.15 h1:EF27CXIuDsYJ6mmvtBRlEuB2UVOqHG1tAXgZ7yIO+lw=
 github.com/klauspost/compress v1.15.15/go.mod h1:ZcK2JAFqKOpnBlxcLsJzYfrS9X1akm9fHZNnD9+Vo/4=
+github.com/klauspost/compress v1.16.3 h1:XuJt9zzcnaz6a16/OU53ZjWp/v7/42WcR5t2a0PcNQY=
 github.com/klauspost/compress v1.16.3/go.mod h1:ntbaceVETuRiXiv4DpjP66DpAtAGkEQskQzEyD//IeE=
 github.com/klauspost/cpuid v1.2.1/go.mod h1:Pj4uuM528wm8OyEC2QMXAi2YiTZ96dNQPGgoMS4s3ek=
 github.com/klauspost/cpuid/v2 v2.0.4/go.mod h1:FInQzS24/EEf25PyTYn52gqo7WaD8xa0213Md/qVLRg=
@@ -895,6 +900,9 @@ github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a h1:1ur3QoCqvE5f
 github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a/go.mod h1:RRCYJbIwD5jmqPI9XoAFR0OcDxqUctll6zUj/+B4S48=
 github.com/syndtr/goleveldb v1.0.1-0.20220721030215-126854af5e6d h1:vfofYNRScrDdvS342BElfbETmL1Aiz3i2t0zfRj16Hs=
 github.com/syndtr/goleveldb v1.0.1-0.20220721030215-126854af5e6d/go.mod h1:RRCYJbIwD5jmqPI9XoAFR0OcDxqUctll6zUj/+B4S48=
+github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f h1:uy2UhXDpgPYk2jQ1GDQyFVlrv9Bfs9pkBqmnHmhKUwU=
+github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f/go.mod h1:H1cswdFA6mPaqTXDdF1RS6CxFrM/xsQWYbGsmK8Uzc4=
+github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367/go.mod h1:GDv68FknaQLKXovnGjOt7GKPR/SAbqCw05nQ4S+TAb0=
 github.com/taikoxyz/taiko-client v0.18.0 h1:Hy5p3T2rjA1wCDe+yyroWvhF520QvqrmtRByMR9T39Y=
 github.com/taikoxyz/taiko-client v0.18.0/go.mod h1:GIuSM4IviGsjcWF2ZFtaIwYNd084Kt7xJuq00f5xkHg=
 github.com/taikoxyz/taiko-client v0.18.1-0.20231227043840-e294b0bfb8cd h1:1cnpEZVMJoldAG3F1vcXg6Y1wlJSpRWjc/0q9GQfS68=

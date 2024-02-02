@@ -7,5 +7,5 @@ use (
 	//./withdrawals
 	//./sanity-l1-geth
 	./sanity/l1-geth
-	./sanity/protocol-l1
+	//./sanity/protocol-l1
 )

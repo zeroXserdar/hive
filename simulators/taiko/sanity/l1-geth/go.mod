@@ -2,18 +2,20 @@ module github.com/taikoxyz/hive/simulators/taiko/sanity/l1-geth
 
 go 1.18
 
-//replace github.com/ethereum/hive/simulators/taiko/common => github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240201000529-a8fe1d5d971d
-//replace github.com/ethereum/hive/simulators/taiko/common => /source/common
-//replace github.com/taikoxyz/hive/simulators/taiko/common => ../../common
 replace github.com/taikoxyz/hive/ => ../../../../
+
+replace github.com/taikoxyz/hive-taiko-clients => ../../../../../hive-taiko-clients
+
 replace github.com/ethereum/go-ethereum v1.13.1 => github.com/ethereum/go-ethereum v1.11.5
+
+replace github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3 => github.com/ethereum/go-ethereum v1.11.5
+
+replace github.com/cockroachdb/pebble => github.com/cockroachdb/pebble v0.0.0-20230404150825-93eff0a72e22
 
 require (
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
-	//github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
-	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367 // indirect
-//github.com/taikoxyz/hive/simulators/taiko/common
-//	github.com/taikoxyz/hive v0.0.0-20240201000529-a8fe1d5d971d
+	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
+//github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367 // indirect
 
 )
 
@@ -55,7 +57,6 @@ require (
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/cockroachdb/errors v1.9.1 // indirect
 	github.com/cockroachdb/logtags v0.0.0-20230118201751-21c54148d20b // indirect
-	github.com/cockroachdb/pebble v0.0.0-20230928194634-aa077af62593 // indirect
 	github.com/cockroachdb/redact v1.1.3 // indirect
 	github.com/deckarep/golang-set/v2 v2.3.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.1.0 // indirect
@@ -75,8 +76,6 @@ require (
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
-	//github.com/marioevz/eth-clients v0.0.0-20230503173323-98293c926363 // indirect
-	//github.com/marioevz/mock-builder v0.0.0-20230515180219-3b0b5c3eefe3 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/minio/sha256-simd v1.0.0 // indirect
@@ -102,4 +101,27 @@ require (
 	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+)
+
+require github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240115145938-e8b27477f55a
+
+require (
+	github.com/cockroachdb/pebble v0.0.0-20230928194634-aa077af62593 // indirect
+	github.com/cockroachdb/tokenbucket v0.0.0-20230807174530-cc333fc44b06 // indirect
+	github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d // indirect
+	github.com/ethereum/hive/simulators/eth2/common v0.0.0-20240201132817-df7a0503bc34 // indirect
+	github.com/ferranbt/fastssz v0.1.3 // indirect
+	github.com/google/uuid v1.3.0 // indirect
+	github.com/herumi/bls-eth-go-binary v1.29.1 // indirect
+	github.com/lithammer/dedent v1.1.0 // indirect
+	github.com/marioevz/eth-clients v0.0.0-20230503173323-98293c926363 // indirect
+	github.com/marioevz/mock-builder v0.0.0-20230515180219-3b0b5c3eefe3 // indirect
+	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/protolambda/go-keystorev4 v0.0.0-20211007151826-f20444f6d564 // indirect
+	github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f // indirect
+	github.com/tyler-smith/go-bip39 v1.1.0 // indirect
+	github.com/wealdtech/go-bytesutil v1.2.1 // indirect
+	github.com/wealdtech/go-eth2-types/v2 v2.8.1 // indirect
+	github.com/wealdtech/go-eth2-util v1.8.1 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

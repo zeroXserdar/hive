@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/taikoxyz/hive/hivesim"
+	"github.com/ethereum/hive/hivesim"
 	"github.com/taikoxyz/hive/simulators/taiko/common/clients"
 	el "github.com/taikoxyz/hive/simulators/taiko/common/config/execution"
 	"github.com/taikoxyz/hive/simulators/taiko/common/testnet"
@@ -32,12 +32,10 @@ func main() {
 			if err != nil {
 				t.Fatal(err)
 			}
+			t.Log("Client types: %v", clientTypes)
 			c := clients.ClientsByRole(clientTypes)
 			if len(c.L1ExecutionClient) != 1 {
 				t.Fatal("choose 1 l1_client client type")
-			}
-			if len(c.L1L2ProtocolDeployerClient) != 1 {
-				t.Fatal("choose 1 l1l2_protocol_deployer client type")
 			}
 			for _, node := range c.Combinations() {
 				env := &testnet.Environment{
@@ -69,7 +67,7 @@ func chainId31336(t *hivesim.T, testnetInstance *testnet.Testnet) {
 	_, cancel := context.WithTimeout(context.Background(), 60*time.Second)
 	defer cancel()
 
-	l1_client := testnetInstance.ExecutionClients().Running()[0]
+	l1_client := testnetInstance.L1ExecutionClients().Running()[0]
 
 	client := &http.Client{}
 

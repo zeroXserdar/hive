@@ -192,7 +192,7 @@ func StartTestnet(
 			)
 			protocolDeployerDef = env.Clients.ClientByNameAndRole(
 				node.L1L2ProtocolDeployerClientName(),
-				"l1l2_protocol_deployer_client",
+				"l1l2_protocol_deployer",
 			)
 			//beaconDef = env.Clients.ClientByNameAndRole(
 			//	node.ConsensusClientName(),
@@ -242,6 +242,8 @@ func StartTestnet(
 				},
 			},
 		)
+
+		t.Fatalf("Node: %v", node)
 
 		if protocolDeployerDef == nil {
 			t.Fatalf("FAIL: Unable to get protocol client")

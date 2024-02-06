@@ -6,6 +6,8 @@ go 1.18
 //
 //replace github.com/taikoxyz/hive-taiko-clients => ../../../../../hive-taiko-clients
 
+replace github.com/taikoxyz/hive/simulators/taiko/common => ../../common/
+
 replace github.com/ethereum/go-ethereum v1.13.1 => github.com/ethereum/go-ethereum v1.11.5
 
 replace github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3 => github.com/ethereum/go-ethereum v1.11.5

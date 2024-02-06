@@ -2,7 +2,7 @@ module github.com/taikoxyz/hive/simulators/taiko/common
 
 go 1.18
 
-replace github.com/taikoxyz/hive-taiko-clients => ../../../../hive-taiko-clients
+//replace github.com/taikoxyz/hive-taiko-clients => ../../../../hive-taiko-clients
 
 replace github.com/taikoxyz/hive/simulators/taiko/common => ./
 

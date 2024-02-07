@@ -37,6 +37,9 @@ func main() {
 			if len(c.L1ExecutionClient) != 1 {
 				t.Fatal("choose 1 l1_client client type")
 			}
+			if len(c.L1L2ProtocolDeployerClient) != 1 {
+				t.Fatal("choose 1 l12_protocol_deployer_client client type")
+			}
 			for _, node := range c.Combinations() {
 				env := &testnet.Environment{
 					Clients: c,

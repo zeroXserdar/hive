@@ -243,9 +243,7 @@ func StartTestnet(
 			},
 		)
 
-		t.Fatalf("Node: %v", node)
-
-		if protocolDeployerDef == nil {
+		if node.L1L2ProtocolDeployerClient != "" && protocolDeployerDef == nil {
 			t.Fatalf("FAIL: Unable to get protocol client")
 		}
 
@@ -269,6 +267,11 @@ func StartTestnet(
 		//nodeClient.Verification = node.TestVerificationNode
 		// Start the node clients if specified so
 		//if !node.DisableStartup {
+		//jsonData, err := json.Marshal(nodeClient.L1ExecutionClient.)
+		//if err != nil {
+		//	t.Fatal("JSON marshal error", err)
+		//}
+		//t.Logf("NodeClient: %v", string(jsonData))
 		if err := nodeClient.Start(); err != nil {
 			t.Fatalf("FAIL: Unable to start node %d: %v", nodeIndex, err)
 		}

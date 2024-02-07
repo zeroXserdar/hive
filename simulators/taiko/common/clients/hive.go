@@ -28,6 +28,9 @@ func (h *HiveManagedClient) IsRunning() bool {
 func (h *HiveManagedClient) Start() error {
 	h.T.Logf("Starting client %s", h.ClientType())
 	opts, err := h.OptionsGenerator()
+	h.T.Logf("With first Option %v", opts[0])
+	h.T.Logf("With Options from Generator %v", opts)
+	h.T.Logf("With Extra Start Options %v", h.extraStartOptions)
 	if err != nil {
 		return fmt.Errorf("unable to get start options: %v", err)
 	}
@@ -40,6 +43,8 @@ func (h *HiveManagedClient) Start() error {
 		opts = append(opts, h.extraStartOptions...)
 	}
 
+	h.T.Logf("With Name %s", h.HiveClientDefinition.Name)
+	h.T.Logf("With Final Options %v", opts)
 	h.hiveClient = h.T.StartClient(h.HiveClientDefinition.Name, opts...)
 	if h.hiveClient == nil {
 		return fmt.Errorf("unable to launch client")

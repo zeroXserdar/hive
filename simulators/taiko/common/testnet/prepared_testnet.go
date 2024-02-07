@@ -302,12 +302,15 @@ func prepareTestnet(
 	//	consensusConfigOpts,
 	//)
 
+	protocolDeployerOpts := hivesim.Bundle()
+
 	return &PreparedTestnet{
 		//spec:          spec,
 		L1ExecutionClientGenesis: eth1Genesis,
 		//eth2Genesis:   state,
 		//keys:          env.Secrets,
-		L1ExecutionOpts: executionOpts,
+		L1ExecutionOpts:          executionOpts,
+		L1L2ProtocolDeployerOpts: protocolDeployerOpts,
 		//beaconOpts:    beaconOpts,
 		//validatorOpts: validatorOpts,
 		//keyTranches:   keyTranches,
@@ -602,8 +605,9 @@ func (p *PreparedTestnet) prepareL1L2ProtocolDeployerNode(
 				"attempted to start protocol deployment node when the execution client is not yet running",
 			)
 		}
-		execNode := deploymentTargetExecutionClient.Proxy()
-		userRPC, err := execNode.UserRPCAddress()
+		//execNode := deploymentTargetExecutionClient.Proxy()
+		//userRPC, err := execNode.UserRPCAddress()
+		userRPC, err := deploymentTargetExecutionClient.UserRPCAddress()
 		if err != nil {
 			return nil, fmt.Errorf(
 				"execution client node used for protocol deployment without available RPC: %v",
@@ -612,7 +616,7 @@ func (p *PreparedTestnet) prepareL1L2ProtocolDeployerNode(
 		}
 
 		opts = append(opts, hivesim.Params{
-			"MAINNET_URL": userRPC,
+			"HIVE_MAINNET_URL": userRPC,
 		})
 
 		//opts = append(
@@ -628,6 +632,11 @@ func (p *PreparedTestnet) prepareL1L2ProtocolDeployerNode(
 		return opts, nil
 	}
 
+	testnet.Logf(
+		"Finished preparing protocol deployer node: %s (%s)",
+		protocolDeployerDef.Name,
+		protocolDeployerDef.Version,
+	)
 	return cl
 }
 

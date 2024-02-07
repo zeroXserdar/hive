@@ -1,7 +1,7 @@
 FROM gcr.io/evmchain/internal-devnet-protocol:latest
 
 ENV PRIVATE_KEY='0xf214f2b2cd398c806f84e317254e0f0b801d0643303237d97a22a48e01628897'
-ENV MAINNET_URL='http://172.17.0.2:8545'
+#ENV MAINNET_URL='http://172.17.0.2:8545'
 #ENV PROTOCOL_LAYER=L1/L2
 ENV PROTOCOL_LAYER=L1
 ENV LOG_LEVEL=debug
@@ -56,6 +56,8 @@ RUN pnpm install "@nomicfoundation/hardhat-ethers"
 RUN pnpm compile && pnpm generate:genesis /internal_l2a.js > /config.output
 RUN #pnpm compile && pnpm generate:genesis ../../../k8s-configs/internal-devnet/config/genesis/internal_l2a.js > /config.output
 
+RUN apt-get update
+RUN apt-get install -y netcat-traditional
 COPY ./start.sh /start.sh
 
 RUN chmod u+x /start.sh

@@ -322,12 +322,6 @@ github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7
 github.com/etcd-io/bbolt v1.3.3/go.mod h1:ZF2nL25h33cCyBtcyWeZ2/I3HQOfTP+0PIEvHjkjCrw=
 github.com/ethereum/go-ethereum v1.11.5 h1:3M1uan+LAUvdn+7wCEFrcMM4LJTeuxDrPTg/f31a5QQ=
 github.com/ethereum/go-ethereum v1.11.5/go.mod h1:it7x0DWnTDMfVFdXcU6Ti4KEFQynLHVRarcSlPr0HBo=
-github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d h1:aYS/z/WooDYsJKpOoZ/ha8Zg+CwSf9Kp1919rnmmC0s=
-github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d/go.mod h1:zKL2DscVzRusnGVpseAvLrXGJ3qrGHuSfOIrv4JfnRk=
-github.com/ethereum/hive/hiveproxy v0.0.0-20230313101845-c7dfe88c8138 h1:Y74Ksk90DLCMWnpOfOEWRLxVjsf/67vY+hX5kWu9UY0=
-github.com/ethereum/hive/hiveproxy v0.0.0-20230313101845-c7dfe88c8138/go.mod h1:1LWNU6/EYsIOXZGa2KdklD1ET77gLTeEyhq+WTZ+37o=
-github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d h1:gvP03hTWxVwiI7oeQvtGSnBYDvx+3baNzGMrucyXIQQ=
-github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d/go.mod h1:0tWUtPhJgk9z3K41wqHV0IYY6/jJWOlfo4rI4v3Mr1E=
 github.com/evanphx/json-patch v4.9.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/fasthttp-contrib/websocket v0.0.0-20160511215533-1f3b11f56072/go.mod h1:duJ4Jxv5lDcvg4QuQr0oowTf7dz4/CR8NtyCooz9HL8=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
@@ -886,6 +880,7 @@ github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a/go.mod h1:RRCYJ
 github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f h1:uy2UhXDpgPYk2jQ1GDQyFVlrv9Bfs9pkBqmnHmhKUwU=
 github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f/go.mod h1:H1cswdFA6mPaqTXDdF1RS6CxFrM/xsQWYbGsmK8Uzc4=
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367/go.mod h1:GDv68FknaQLKXovnGjOt7GKPR/SAbqCw05nQ4S+TAb0=
+github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117/go.mod h1:S/FYorE4XUN82JTV3m2tW6rSHEm11Mo0oCdUUChKfQo=
 github.com/tchap/go-patricia v2.2.6+incompatible/go.mod h1:bmLyhP68RS6kStMGxByiQ23RP/odRBOTVjwp2cDyi6I=
 github.com/tklauser/go-sysconf v0.3.11 h1:89WgdJhk5SNwJfu+GKyYveZ4IaJ7xAkecBo+KdJV0CM=
 github.com/tklauser/go-sysconf v0.3.11/go.mod h1:GqXfhXY3kiPa0nAXPDIQIWzJbMCB7AmcWpGR8lSZfqI=

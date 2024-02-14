@@ -20,9 +20,9 @@ import (
 	"github.com/protolambda/zrnt/eth2/beacon/common"
 	"github.com/protolambda/zrnt/eth2/configs"
 
-	"github.com/ethereum/hive/hivesim"
 	execution_client "github.com/taikoxyz/hive-taiko-clients/clients/execution"
 	protocol_deployer_client "github.com/taikoxyz/hive-taiko-clients/clients/taiko/protocol_deployer"
+	"github.com/taikoxyz/hive/hivesim"
 	"github.com/taikoxyz/hive/simulators/taiko/common/clients"
 	execution "github.com/taikoxyz/hive/simulators/taiko/common/config/execution"
 )

@@ -2,8 +2,6 @@ module github.com/taikoxyz/hive/simulators/taiko/sanity/l1-geth
 
 go 1.18
 
-replace github.com/taikoxyz/hive/ v0.0.0-20240202083617-c9e28f81780f => ../../../../
-replace github.com/taikoxyz/hive/hivesim v0.0.0-20240202083617-c9e28f81780f => ../../../../hivesim
 //
 //replace github.com/taikoxyz/hive-taiko-clients => ../../../../../hive-taiko-clients
 
@@ -17,7 +15,6 @@ replace github.com/cockroachdb/pebble => github.com/cockroachdb/pebble v0.0.0-20
 
 require (
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
-	//github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
 	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240202100531-e788dd38dbe1
 
 )
@@ -94,8 +91,6 @@ require (
 	github.com/docker/docker v24.0.7+incompatible // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
-	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d // indirect
-	github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d // indirect
 	github.com/fsouza/go-dockerclient v1.9.8 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect

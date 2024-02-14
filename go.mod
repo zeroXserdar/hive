@@ -5,8 +5,6 @@ go 1.20
 require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
-	//github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
-	//github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d
 	github.com/evanw/esbuild v0.18.11
 	github.com/fsouza/go-dockerclient v1.9.8
 	github.com/gorilla/mux v1.8.0

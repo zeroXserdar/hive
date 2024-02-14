@@ -12,7 +12,6 @@ replace github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3 =>
 
 require (
 	github.com/ethereum/go-ethereum v1.11.5
-	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
 	github.com/google/uuid v1.3.0
 	github.com/herumi/bls-eth-go-binary v1.29.1
 	github.com/holiman/uint256 v1.2.3
@@ -56,7 +55,6 @@ require (
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
-	github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d // indirect
 	github.com/ferranbt/fastssz v0.1.3 // indirect
 	github.com/fsouza/go-dockerclient v1.9.8 // indirect
 	github.com/getsentry/sentry-go v0.20.0 // indirect
@@ -102,7 +100,6 @@ require (
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
-	github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
 	github.com/tklauser/numcpus v0.6.1 // indirect
 	github.com/wealdtech/go-bytesutil v1.2.1 // indirect

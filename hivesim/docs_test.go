@@ -5,7 +5,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/ethereum/hive/internal/simapi"
+	"github.com/taikoxyz/hive/internal/simapi"
 )
 
 type nopCloser struct {

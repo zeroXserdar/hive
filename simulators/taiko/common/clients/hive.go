@@ -3,8 +3,8 @@ package clients
 import (
 	"errors"
 	"fmt"
-	"github.com/ethereum/hive/hivesim"
 	"github.com/taikoxyz/hive-taiko-clients/clients"
+	"github.com/taikoxyz/hive/hivesim"
 	"net"
 )
 

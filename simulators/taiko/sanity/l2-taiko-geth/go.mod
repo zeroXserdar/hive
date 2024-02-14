@@ -16,7 +16,6 @@ replace github.com/cockroachdb/pebble => github.com/cockroachdb/pebble v0.0.0-20
 
 require (
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
-	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
 	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240202100531-e788dd38dbe1
 
 )

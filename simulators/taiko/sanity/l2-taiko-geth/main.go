@@ -20,7 +20,6 @@ var (
 )
 
 func main() {
-	api.env.
 	suite := hivesim.Suite{
 		Name:        "Sanity - L1 - geth",
 		Description: "L1 geth sanity test suite",

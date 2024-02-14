@@ -16,7 +16,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 )
 
-require github.com/taikoxyz/hive/hiveproxy v0.0.0-20240118122801-6b7dae425940
+require github.com/taikoxyz/hive/hiveproxy v0.0.0-20240214143925-ec0b36a20cd4
 
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect

@@ -5,16 +5,20 @@ go 1.20
 require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
-	github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d
+	//github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
+	//github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d
 	github.com/evanw/esbuild v0.18.11
 	github.com/fsouza/go-dockerclient v1.9.8
 	github.com/gorilla/mux v1.8.0
+	github.com/holiman/uint256 v1.2.3
 	github.com/lithammer/dedent v1.1.0
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9
 	golang.org/x/net v0.17.0
 	gopkg.in/inconshreveable/log15.v2 v2.0.0-20200109203555-b30bc20e4fd1
 	gopkg.in/yaml.v3 v3.0.1
 )
+
+require github.com/taikoxyz/hive/hiveproxy v0.0.0-20240118122801-6b7dae425940
 
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
@@ -51,7 +55,6 @@ require (
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/holiman/bloomfilter/v2 v2.0.3 // indirect
-	github.com/holiman/uint256 v1.2.3 // indirect
 	github.com/klauspost/compress v1.15.15 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
@@ -92,4 +95,6 @@ require (
 	rsc.io/tmplfunc v0.0.3 // indirect
 )
 
-replace github.com/ethereum/hive/hiveproxy => ./hiveproxy
+replace github.com/taikoxyz/hive/hiveproxy => ./hiveproxy
+
+replace github.com/taikoxyz/hive => ./

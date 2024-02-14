@@ -1,0 +1,4284 @@
+{
+  "SharedAddressManagerImpl": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15415,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "addresses",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_mapping(t_uint256,t_mapping(t_bytes32,t_address))"
+      },
+      {
+        "astId": 15419,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_bytes32,t_address)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_uint256,t_mapping(t_bytes32,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(bytes32 => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_bytes32,t_address)"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "SharedAddressManager": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15415,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "addresses",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_mapping(t_uint256,t_mapping(t_bytes32,t_address))"
+      },
+      {
+        "astId": 15419,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_bytes32,t_address)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_uint256,t_mapping(t_bytes32,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(bytes32 => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_bytes32,t_address)"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "BridgeImpl": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 14005,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "nextMessageId",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_uint128"
+      },
+      {
+        "astId": 14009,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__isMessageRecalled",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_mapping(t_bytes32,t_bool)"
+      },
+      {
+        "astId": 14014,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "messageStatus",
+        "offset": 0,
+        "slot": "253",
+        "type": "t_mapping(t_bytes32,t_enum(Status)13991)"
+      },
+      {
+        "astId": 14017,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_ctx",
+        "offset": 0,
+        "slot": "254",
+        "type": "t_struct(Context)15359_storage"
+      },
+      {
+        "astId": 14021,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "addressBanned",
+        "offset": 0,
+        "slot": "256",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 14026,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "proofReceipt",
+        "offset": 0,
+        "slot": "257",
+        "type": "t_mapping(t_bytes32,t_struct(ProofReceipt)13996_storage)"
+      },
+      {
+        "astId": 14030,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "258",
+        "type": "t_array(t_uint256)42_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)42_storage": {
+        "encoding": "inplace",
+        "label": "uint256[42]",
+        "numberOfBytes": "1344",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_enum(Status)13991": {
+        "encoding": "inplace",
+        "label": "enum Bridge.Status",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_bytes32,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_bytes32,t_enum(Status)13991)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => enum Bridge.Status)",
+        "numberOfBytes": "32",
+        "value": "t_enum(Status)13991"
+      },
+      "t_mapping(t_bytes32,t_struct(ProofReceipt)13996_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct Bridge.ProofReceipt)",
+        "numberOfBytes": "32",
+        "value": "t_struct(ProofReceipt)13996_storage"
+      },
+      "t_struct(Context)15359_storage": {
+        "encoding": "inplace",
+        "label": "struct IBridge.Context",
+        "numberOfBytes": "64",
+        "members": [
+          {
+            "astId": 15354,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "msgHash",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bytes32"
+          },
+          {
+            "astId": 15356,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "from",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 15358,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "srcChainId",
+            "offset": 20,
+            "slot": "1",
+            "type": "t_uint64"
+          }
+        ]
+      },
+      "t_struct(ProofReceipt)13996_storage": {
+        "encoding": "inplace",
+        "label": "struct Bridge.ProofReceipt",
+        "numberOfBytes": "32",
+        "members": [
+          {
+            "astId": 13993,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "receivedAt",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 13995,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "preferredExecutor",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          }
+        ]
+      },
+      "t_uint128": {
+        "encoding": "inplace",
+        "label": "uint128",
+        "numberOfBytes": "16"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "Bridge": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 14005,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "nextMessageId",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_uint128"
+      },
+      {
+        "astId": 14009,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__isMessageRecalled",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_mapping(t_bytes32,t_bool)"
+      },
+      {
+        "astId": 14014,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "messageStatus",
+        "offset": 0,
+        "slot": "253",
+        "type": "t_mapping(t_bytes32,t_enum(Status)13991)"
+      },
+      {
+        "astId": 14017,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "_ctx",
+        "offset": 0,
+        "slot": "254",
+        "type": "t_struct(Context)15359_storage"
+      },
+      {
+        "astId": 14021,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "addressBanned",
+        "offset": 0,
+        "slot": "256",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 14026,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "proofReceipt",
+        "offset": 0,
+        "slot": "257",
+        "type": "t_mapping(t_bytes32,t_struct(ProofReceipt)13996_storage)"
+      },
+      {
+        "astId": 14030,
+        "contract": "contracts/bridge/Bridge.sol:Bridge",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "258",
+        "type": "t_array(t_uint256)42_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)42_storage": {
+        "encoding": "inplace",
+        "label": "uint256[42]",
+        "numberOfBytes": "1344",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_enum(Status)13991": {
+        "encoding": "inplace",
+        "label": "enum Bridge.Status",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_bytes32,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_bytes32,t_enum(Status)13991)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => enum Bridge.Status)",
+        "numberOfBytes": "32",
+        "value": "t_enum(Status)13991"
+      },
+      "t_mapping(t_bytes32,t_struct(ProofReceipt)13996_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct Bridge.ProofReceipt)",
+        "numberOfBytes": "32",
+        "value": "t_struct(ProofReceipt)13996_storage"
+      },
+      "t_struct(Context)15359_storage": {
+        "encoding": "inplace",
+        "label": "struct IBridge.Context",
+        "numberOfBytes": "64",
+        "members": [
+          {
+            "astId": 15354,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "msgHash",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bytes32"
+          },
+          {
+            "astId": 15356,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "from",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 15358,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "srcChainId",
+            "offset": 20,
+            "slot": "1",
+            "type": "t_uint64"
+          }
+        ]
+      },
+      "t_struct(ProofReceipt)13996_storage": {
+        "encoding": "inplace",
+        "label": "struct Bridge.ProofReceipt",
+        "numberOfBytes": "32",
+        "members": [
+          {
+            "astId": 13993,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "receivedAt",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 13995,
+            "contract": "contracts/bridge/Bridge.sol:Bridge",
+            "label": "preferredExecutor",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          }
+        ]
+      },
+      "t_uint128": {
+        "encoding": "inplace",
+        "label": "uint128",
+        "numberOfBytes": "16"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "ERC20VaultImpl": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 21661,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "bridgedToCanonical",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_mapping(t_address,t_struct(CanonicalERC20)21639_storage)"
+      },
+      {
+        "astId": 21667,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "canonicalToBridged",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_address))"
+      },
+      {
+        "astId": 21671,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "btokenBlacklist",
+        "offset": 0,
+        "slot": "253",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 21675,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "254",
+        "type": "t_array(t_uint256)46_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)46_storage": {
+        "encoding": "inplace",
+        "label": "uint256[46]",
+        "numberOfBytes": "1472",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_struct(CanonicalERC20)21639_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct ERC20Vault.CanonicalERC20)",
+        "numberOfBytes": "32",
+        "value": "t_struct(CanonicalERC20)21639_storage"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_address)"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(CanonicalERC20)21639_storage": {
+        "encoding": "inplace",
+        "label": "struct ERC20Vault.CanonicalERC20",
+        "numberOfBytes": "96",
+        "members": [
+          {
+            "astId": 21630,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "chainId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 21632,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "addr",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 21634,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "decimals",
+            "offset": 28,
+            "slot": "0",
+            "type": "t_uint8"
+          },
+          {
+            "astId": 21636,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "symbol",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 21638,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          }
+        ]
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "ERC20Vault": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 21661,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "bridgedToCanonical",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_mapping(t_address,t_struct(CanonicalERC20)21639_storage)"
+      },
+      {
+        "astId": 21667,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "canonicalToBridged",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_address))"
+      },
+      {
+        "astId": 21671,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "btokenBlacklist",
+        "offset": 0,
+        "slot": "253",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 21675,
+        "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "254",
+        "type": "t_array(t_uint256)46_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)46_storage": {
+        "encoding": "inplace",
+        "label": "uint256[46]",
+        "numberOfBytes": "1472",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_struct(CanonicalERC20)21639_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct ERC20Vault.CanonicalERC20)",
+        "numberOfBytes": "32",
+        "value": "t_struct(CanonicalERC20)21639_storage"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_address)"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(CanonicalERC20)21639_storage": {
+        "encoding": "inplace",
+        "label": "struct ERC20Vault.CanonicalERC20",
+        "numberOfBytes": "96",
+        "members": [
+          {
+            "astId": 21630,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "chainId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 21632,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "addr",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 21634,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "decimals",
+            "offset": 28,
+            "slot": "0",
+            "type": "t_uint8"
+          },
+          {
+            "astId": 21636,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "symbol",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 21638,
+            "contract": "contracts/tokenvault/ERC20Vault.sol:ERC20Vault",
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          }
+        ]
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "ERC721VaultImpl": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 19600,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "bridgedToCanonical",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_mapping(t_address,t_struct(CanonicalNFT)19565_storage)"
+      },
+      {
+        "astId": 19606,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "canonicalToBridged",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_address))"
+      },
+      {
+        "astId": 19610,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "253",
+        "type": "t_array(t_uint256)48_storage"
+      },
+      {
+        "astId": 22574,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_array(t_uint256)50_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)48_storage": {
+        "encoding": "inplace",
+        "label": "uint256[48]",
+        "numberOfBytes": "1536",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_struct(CanonicalNFT)19565_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct BaseNFTVault.CanonicalNFT)",
+        "numberOfBytes": "32",
+        "value": "t_struct(CanonicalNFT)19565_storage"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_address)"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(CanonicalNFT)19565_storage": {
+        "encoding": "inplace",
+        "label": "struct BaseNFTVault.CanonicalNFT",
+        "numberOfBytes": "96",
+        "members": [
+          {
+            "astId": 19558,
+            "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+            "label": "chainId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 19560,
+            "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+            "label": "addr",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 19562,
+            "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+            "label": "symbol",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 19564,
+            "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          }
+        ]
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "ERC721Vault": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 19600,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "bridgedToCanonical",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_mapping(t_address,t_struct(CanonicalNFT)19565_storage)"
+      },
+      {
+        "astId": 19606,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "canonicalToBridged",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_address))"
+      },
+      {
+        "astId": 19610,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "253",
+        "type": "t_array(t_uint256)48_storage"
+      },
+      {
+        "astId": 22574,
+        "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_array(t_uint256)50_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)48_storage": {
+        "encoding": "inplace",
+        "label": "uint256[48]",
+        "numberOfBytes": "1536",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_struct(CanonicalNFT)19565_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct BaseNFTVault.CanonicalNFT)",
+        "numberOfBytes": "32",
+        "value": "t_struct(CanonicalNFT)19565_storage"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_address)"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(CanonicalNFT)19565_storage": {
+        "encoding": "inplace",
+        "label": "struct BaseNFTVault.CanonicalNFT",
+        "numberOfBytes": "96",
+        "members": [
+          {
+            "astId": 19558,
+            "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+            "label": "chainId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 19560,
+            "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+            "label": "addr",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 19562,
+            "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+            "label": "symbol",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 19564,
+            "contract": "contracts/tokenvault/ERC721Vault.sol:ERC721Vault",
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          }
+        ]
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "ERC1155VaultImpl": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 19600,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "bridgedToCanonical",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_mapping(t_address,t_struct(CanonicalNFT)19565_storage)"
+      },
+      {
+        "astId": 19606,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "canonicalToBridged",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_address))"
+      },
+      {
+        "astId": 19610,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "253",
+        "type": "t_array(t_uint256)48_storage"
+      },
+      {
+        "astId": 66207,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 59653,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "351",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 20772,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "401",
+        "type": "t_array(t_uint256)50_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)48_storage": {
+        "encoding": "inplace",
+        "label": "uint256[48]",
+        "numberOfBytes": "1536",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_struct(CanonicalNFT)19565_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct BaseNFTVault.CanonicalNFT)",
+        "numberOfBytes": "32",
+        "value": "t_struct(CanonicalNFT)19565_storage"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_address)"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(CanonicalNFT)19565_storage": {
+        "encoding": "inplace",
+        "label": "struct BaseNFTVault.CanonicalNFT",
+        "numberOfBytes": "96",
+        "members": [
+          {
+            "astId": 19558,
+            "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+            "label": "chainId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 19560,
+            "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+            "label": "addr",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 19562,
+            "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+            "label": "symbol",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 19564,
+            "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          }
+        ]
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "ERC1155Vault": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 19600,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "bridgedToCanonical",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_mapping(t_address,t_struct(CanonicalNFT)19565_storage)"
+      },
+      {
+        "astId": 19606,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "canonicalToBridged",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_address))"
+      },
+      {
+        "astId": 19610,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "253",
+        "type": "t_array(t_uint256)48_storage"
+      },
+      {
+        "astId": 66207,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 59653,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "351",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 20772,
+        "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "401",
+        "type": "t_array(t_uint256)50_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)48_storage": {
+        "encoding": "inplace",
+        "label": "uint256[48]",
+        "numberOfBytes": "1536",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_struct(CanonicalNFT)19565_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct BaseNFTVault.CanonicalNFT)",
+        "numberOfBytes": "32",
+        "value": "t_struct(CanonicalNFT)19565_storage"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_address)"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(CanonicalNFT)19565_storage": {
+        "encoding": "inplace",
+        "label": "struct BaseNFTVault.CanonicalNFT",
+        "numberOfBytes": "96",
+        "members": [
+          {
+            "astId": 19558,
+            "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+            "label": "chainId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 19560,
+            "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+            "label": "addr",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 19562,
+            "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+            "label": "symbol",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 19564,
+            "contract": "contracts/tokenvault/ERC1155Vault.sol:ERC1155Vault",
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          }
+        ]
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "BridgedERC20": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 20291,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "migratingAddress",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_address"
+      },
+      {
+        "astId": 20293,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "migratingInbound",
+        "offset": 20,
+        "slot": "251",
+        "type": "t_bool"
+      },
+      {
+        "astId": 20297,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 59673,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_balances",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 59679,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_allowances",
+        "offset": 0,
+        "slot": "302",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+      },
+      {
+        "astId": 59681,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_totalSupply",
+        "offset": 0,
+        "slot": "303",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 59683,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_name",
+        "offset": 0,
+        "slot": "304",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 59685,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "_symbol",
+        "offset": 0,
+        "slot": "305",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 60265,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "306",
+        "type": "t_array(t_uint256)45_storage"
+      },
+      {
+        "astId": 20076,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "srcToken",
+        "offset": 0,
+        "slot": "351",
+        "type": "t_address"
+      },
+      {
+        "astId": 20078,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "srcDecimals",
+        "offset": 20,
+        "slot": "351",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 20080,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "srcChainId",
+        "offset": 0,
+        "slot": "352",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 20084,
+        "contract": "contracts/tokenvault/BridgedERC20.sol:BridgedERC20",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "353",
+        "type": "t_array(t_uint256)48_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)45_storage": {
+        "encoding": "inplace",
+        "label": "uint256[45]",
+        "numberOfBytes": "1440",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)48_storage": {
+        "encoding": "inplace",
+        "label": "uint256[48]",
+        "numberOfBytes": "1536",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "BridgedERC721": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 66207,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 61691,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_name",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 61693,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_symbol",
+        "offset": 0,
+        "slot": "302",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 61697,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_owners",
+        "offset": 0,
+        "slot": "303",
+        "type": "t_mapping(t_uint256,t_address)"
+      },
+      {
+        "astId": 61701,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_balances",
+        "offset": 0,
+        "slot": "304",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 61705,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_tokenApprovals",
+        "offset": 0,
+        "slot": "305",
+        "type": "t_mapping(t_uint256,t_address)"
+      },
+      {
+        "astId": 61711,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "_operatorApprovals",
+        "offset": 0,
+        "slot": "306",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_bool))"
+      },
+      {
+        "astId": 62613,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "307",
+        "type": "t_array(t_uint256)44_storage"
+      },
+      {
+        "astId": 20520,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "srcToken",
+        "offset": 0,
+        "slot": "351",
+        "type": "t_address"
+      },
+      {
+        "astId": 20522,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "srcChainId",
+        "offset": 0,
+        "slot": "352",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 20526,
+        "contract": "contracts/tokenvault/BridgedERC721.sol:BridgedERC721",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "353",
+        "type": "t_array(t_uint256)48_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)44_storage": {
+        "encoding": "inplace",
+        "label": "uint256[44]",
+        "numberOfBytes": "1408",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)48_storage": {
+        "encoding": "inplace",
+        "label": "uint256[48]",
+        "numberOfBytes": "1536",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_bool)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_address)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "BridgedERC1155": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 66207,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 58206,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "_balances",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))"
+      },
+      {
+        "astId": 58212,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "_operatorApprovals",
+        "offset": 0,
+        "slot": "302",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_bool))"
+      },
+      {
+        "astId": 58214,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "_uri",
+        "offset": 0,
+        "slot": "303",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 59421,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "304",
+        "type": "t_array(t_uint256)47_storage"
+      },
+      {
+        "astId": 19876,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "srcToken",
+        "offset": 0,
+        "slot": "351",
+        "type": "t_address"
+      },
+      {
+        "astId": 19878,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "srcChainId",
+        "offset": 0,
+        "slot": "352",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 19880,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "symbol_",
+        "offset": 0,
+        "slot": "353",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 19882,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "name_",
+        "offset": 0,
+        "slot": "354",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 19886,
+        "contract": "contracts/tokenvault/BridgedERC1155.sol:BridgedERC1155",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "355",
+        "type": "t_array(t_uint256)46_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)46_storage": {
+        "encoding": "inplace",
+        "label": "uint256[46]",
+        "numberOfBytes": "1472",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)47_storage": {
+        "encoding": "inplace",
+        "label": "uint256[47]",
+        "numberOfBytes": "1504",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_bool)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "SignalServiceImpl": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 15702,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "authorizedAddresses",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_mapping(t_address,t_bytes32)"
+      },
+      {
+        "astId": 15706,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_array(t_uint256)49_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "SignalService": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 15702,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "authorizedAddresses",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_mapping(t_address,t_bytes32)"
+      },
+      {
+        "astId": 15706,
+        "contract": "contracts/signal/SignalService.sol:SignalService",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_array(t_uint256)49_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "TaikoL2Impl": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 5878,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "ownerChainId",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 5880,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "nextTxId",
+        "offset": 8,
+        "slot": "251",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 5884,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 6145,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "l2Hashes",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_mapping(t_uint256,t_bytes32)"
+      },
+      {
+        "astId": 6150,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "snippets",
+        "offset": 0,
+        "slot": "302",
+        "type": "t_mapping(t_uint256,t_struct(Snippet)15859_storage)"
+      },
+      {
+        "astId": 6152,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "publicInputHash",
+        "offset": 0,
+        "slot": "303",
+        "type": "t_bytes32"
+      },
+      {
+        "astId": 6154,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "gasExcess",
+        "offset": 0,
+        "slot": "304",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 6156,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "latestSyncedL1Height",
+        "offset": 8,
+        "slot": "304",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 6160,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "305",
+        "type": "t_array(t_uint256)146_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)146_storage": {
+        "encoding": "inplace",
+        "label": "uint256[146]",
+        "numberOfBytes": "4672",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_uint256,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      },
+      "t_mapping(t_uint256,t_struct(Snippet)15859_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct ICrossChainSync.Snippet)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Snippet)15859_storage"
+      },
+      "t_struct(Snippet)15859_storage": {
+        "encoding": "inplace",
+        "label": "struct ICrossChainSync.Snippet",
+        "numberOfBytes": "96",
+        "members": [
+          {
+            "astId": 15852,
+            "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+            "label": "remoteBlockId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 15854,
+            "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+            "label": "syncedInBlock",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 15856,
+            "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+            "label": "blockHash",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_bytes32"
+          },
+          {
+            "astId": 15858,
+            "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+            "label": "signalRoot",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_bytes32"
+          }
+        ]
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "TaikoL2": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15512,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "addressManager",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_address"
+      },
+      {
+        "astId": 15516,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15796,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "201",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 5878,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "ownerChainId",
+        "offset": 0,
+        "slot": "251",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 5880,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "nextTxId",
+        "offset": 8,
+        "slot": "251",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 5884,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "252",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 6145,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "l2Hashes",
+        "offset": 0,
+        "slot": "301",
+        "type": "t_mapping(t_uint256,t_bytes32)"
+      },
+      {
+        "astId": 6150,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "snippets",
+        "offset": 0,
+        "slot": "302",
+        "type": "t_mapping(t_uint256,t_struct(Snippet)15859_storage)"
+      },
+      {
+        "astId": 6152,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "publicInputHash",
+        "offset": 0,
+        "slot": "303",
+        "type": "t_bytes32"
+      },
+      {
+        "astId": 6154,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "gasExcess",
+        "offset": 0,
+        "slot": "304",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 6156,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "latestSyncedL1Height",
+        "offset": 8,
+        "slot": "304",
+        "type": "t_uint64"
+      },
+      {
+        "astId": 6160,
+        "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "305",
+        "type": "t_array(t_uint256)146_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)146_storage": {
+        "encoding": "inplace",
+        "label": "uint256[146]",
+        "numberOfBytes": "4672",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_uint256,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      },
+      "t_mapping(t_uint256,t_struct(Snippet)15859_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct ICrossChainSync.Snippet)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Snippet)15859_storage"
+      },
+      "t_struct(Snippet)15859_storage": {
+        "encoding": "inplace",
+        "label": "struct ICrossChainSync.Snippet",
+        "numberOfBytes": "96",
+        "members": [
+          {
+            "astId": 15852,
+            "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+            "label": "remoteBlockId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 15854,
+            "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+            "label": "syncedInBlock",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 15856,
+            "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+            "label": "blockHash",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_bytes32"
+          },
+          {
+            "astId": 15858,
+            "contract": "contracts/L2/TaikoL2.sol:TaikoL2",
+            "label": "signalRoot",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_bytes32"
+          }
+        ]
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "RollupAddressManagerImpl": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15415,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "addresses",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_mapping(t_uint256,t_mapping(t_bytes32,t_address))"
+      },
+      {
+        "astId": 15419,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_bytes32,t_address)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_uint256,t_mapping(t_bytes32,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(bytes32 => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_bytes32,t_address)"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "RollupAddressManager": {
+    "storage": [
+      {
+        "astId": 58015,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 58018,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 64627,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 53496,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 53616,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15897,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_reentry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15899,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "_paused",
+        "offset": 1,
+        "slot": "101",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 15903,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 15415,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "addresses",
+        "offset": 0,
+        "slot": "151",
+        "type": "t_mapping(t_uint256,t_mapping(t_bytes32,t_address))"
+      },
+      {
+        "astId": 15419,
+        "contract": "contracts/common/AddressManager.sol:AddressManager",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "152",
+        "type": "t_array(t_uint256)49_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568",
+        "base": "t_uint256"
+      },
+      "t_array(t_uint256)50_storage": {
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600",
+        "base": "t_uint256"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_bytes32,t_address)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_uint256,t_mapping(t_bytes32,t_address))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(bytes32 => address))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_bytes32,t_address)"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  },
+  "RegularERC20": {
+    "storage": [
+      {
+        "astId": 72690,
+        "contract": "test/common/erc20/RegularERC20.sol:RegularERC20",
+        "label": "_balances",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 72696,
+        "contract": "test/common/erc20/RegularERC20.sol:RegularERC20",
+        "label": "_allowances",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+      },
+      {
+        "astId": 72698,
+        "contract": "test/common/erc20/RegularERC20.sol:RegularERC20",
+        "label": "_totalSupply",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 72700,
+        "contract": "test/common/erc20/RegularERC20.sol:RegularERC20",
+        "label": "_name",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 72702,
+        "contract": "test/common/erc20/RegularERC20.sol:RegularERC20",
+        "label": "_symbol",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_string_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

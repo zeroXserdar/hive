@@ -8,8 +8,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/ethereum/hive/internal/simapi"
 	"github.com/lithammer/dedent"
+	"github.com/taikoxyz/hive/internal/simapi"
 	"gopkg.in/inconshreveable/log15.v2"
 )
 

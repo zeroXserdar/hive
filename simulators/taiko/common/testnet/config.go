@@ -42,6 +42,7 @@ type Config struct {
 	// validators.
 	NodeDefinitions      clients.NodeDefinitions             `json:"node_definitions,omitempty"`
 	L1ExecutionConsensus execution_config.ExecutionConsensus `json:"l1_execution_consensus,omitempty"`
+	L2ExecutionConsensus execution_config.ExecutionConsensus `json:"l2_execution_consensus,omitempty"`
 
 	// Execution Layer specific config
 	InitialBaseFeePerGas     *big.Int                               `json:"initial_base_fee_per_gas,omitempty"`

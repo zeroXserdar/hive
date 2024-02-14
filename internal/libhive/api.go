@@ -14,8 +14,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/hive/internal/simapi"
 	"github.com/gorilla/mux"
+	"github.com/taikoxyz/hive/internal/simapi"
 	"gopkg.in/inconshreveable/log15.v2"
 )
 
@@ -23,8 +23,9 @@ import (
 // be moved from test images to client container to fine tune their setup.
 const hiveEnvvarPrefix = "HIVE_"
 
+// TODO:
 // This is the default timeout for starting clients.
-const defaultStartTimeout = time.Duration(60 * time.Second)
+const defaultStartTimeout = time.Duration(180 * time.Second)
 
 // newSimulationAPI creates handlers for the simulation API.
 func newSimulationAPI(b ContainerBackend, env SimEnv, tm *TestManager) http.Handler {

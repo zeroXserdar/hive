@@ -6,6 +6,9 @@ import (
 	"encoding/hex"
 	"fmt"
 	"github.com/kr/pretty"
+	"github.com/taikoxyz/hive-taiko-clients/clients/taiko/driver"
+	"github.com/taikoxyz/hive-taiko-clients/clients/taiko/proposer"
+	"github.com/taikoxyz/hive-taiko-clients/clients/taiko/prover"
 	"math/big"
 	"net"
 	//"sync"
@@ -54,6 +57,7 @@ type Testnet struct {
 	spec *common.Spec
 	// Execution chain configuration and genesis info
 	L1ExecutionClientGenesis *execution_config.ExecutionGenesis
+	L2ExecutionClientGenesis *execution_config.ExecutionGenesis
 	// Consensus genesis state
 	//eth2GenesisState common.BeaconState
 
@@ -186,13 +190,29 @@ func StartTestnet(
 		var (
 			nodeClient = testnet.TaikoNodes[nodeIndex]
 
-			executionDef = env.Clients.ClientByNameAndRole(
+			L1executionDef = env.Clients.ClientByNameAndRole(
 				node.L1ExecutionClientName(),
 				"l1_client",
+			)
+			L2executionDef = env.Clients.ClientByNameAndRole(
+				node.L2ExecutionClientName(),
+				"l2_client",
 			)
 			protocolDeployerDef = env.Clients.ClientByNameAndRole(
 				node.L1L2ProtocolDeployerClientName(),
 				"l1l2_protocol_deployer",
+			)
+			driverDef = env.Clients.ClientByNameAndRole(
+				node.L2DriverClientName(),
+				"l2_driver",
+			)
+			proposerDef = env.Clients.ClientByNameAndRole(
+				node.L2ProposerClientName(),
+				"l2_proposer",
+			)
+			proverDef = env.Clients.ClientByNameAndRole(
+				node.L2ProverClientName(),
+				"l2_prover",
 			)
 			//beaconDef = env.Clients.ClientByNameAndRole(
 			//	node.ConsensusClientName(),
@@ -206,9 +226,9 @@ func StartTestnet(
 			//beaconTTD    = int64(0)
 		)
 
-		if executionDef == nil {
-			//if executionDef == nil || beaconDef == nil || validatorDef == nil {
-			t.Fatalf("FAIL: Unable to get execution client")
+		if L1executionDef == nil {
+			//if L1executionDef == nil || beaconDef == nil || validatorDef == nil {
+			t.Fatalf("FAIL: Unable to get L1 execution client")
 		}
 		if node.L1ExecutionClientTTD != nil {
 			executionTTD = node.L1ExecutionClientTTD.Int64()
@@ -226,7 +246,7 @@ func StartTestnet(
 		nodeClient.L1ExecutionClient = prep.prepareL1ExecutionNode(
 			parentCtx,
 			testnet,
-			executionDef,
+			L1executionDef,
 			config.L1ExecutionConsensus,
 			node.L1Chain,
 			exec_client.ExecutionClientConfig{
@@ -243,8 +263,46 @@ func StartTestnet(
 			},
 		)
 
+		if L2executionDef == nil {
+			//if L2executionDef == nil || beaconDef == nil || validatorDef == nil {
+			t.Fatalf("FAIL: Unable to get L2 execution client")
+		}
+		//if node.L2ExecutionClientTTD != nil {
+		//	executionTTD = node.L2ExecutionClientTTD.Int64()
+		//} else if testnet.L2ExecutionClientGenesis.Genesis.Config.TerminalTotalDifficulty != nil {
+		//	executionTTD = testnet.L2ExecutionClientGenesis.Genesis.Config.TerminalTotalDifficulty.Int64()
+		//}
+		//if node.BeaconNodeTTD != nil {
+		//	beaconTTD = node.BeaconNodeTTD.Int64()
+		//} else if testnet.L2ExecutionClientGenesis.Genesis.Config.TerminalTotalDifficulty != nil {
+		//	beaconTTD = testnet.L2ExecutionClientGenesis.Genesis.Config.TerminalTotalDifficulty.Int64()
+		//}
+
+		// Prepare the client objects with all the information necessary to
+		// eventually start
+		nodeClient.L2ExecutionClient = prep.prepareL2ExecutionNode(
+			parentCtx,
+			testnet,
+			L2executionDef,
+			config.L2ExecutionConsensus,
+			node.L2Chain,
+			exec_client.ExecutionClientConfig{
+				ClientIndex:             nodeIndex,
+				TerminalTotalDifficulty: executionTTD,
+				Subnet:                  node.GetL2Subnet(),
+				JWTSecret:               JWT_SECRET,
+				ProxyConfig: &exec_client.ExecutionProxyConfig{
+					Host:                   simulatorIP,
+					Port:                   exec_client.PortEngineRPC + nodeIndex,
+					TrackForkchoiceUpdated: true,
+					LogEngineCalls:         env.LogEngineCalls,
+				},
+			},
+			nodeClient.L1ExecutionClient,
+		)
+
 		if node.L1L2ProtocolDeployerClient != "" && protocolDeployerDef == nil {
-			t.Fatalf("FAIL: Unable to get protocol client")
+			t.Fatalf("FAIL: Unable to get protocol deployer client")
 		}
 
 		if node.L1L2ProtocolDeployerClient != "" {
@@ -261,6 +319,59 @@ func StartTestnet(
 			)
 		}
 
+		if node.L2DriverClient != "" && driverDef == nil {
+			t.Fatalf("FAIL: Unable to get driver client")
+		}
+
+		if node.L2DriverClient != "" {
+			nodeClient.L2DriverClient = prep.prepareL2DriverNode(
+				parentCtx,
+				testnet,
+				driverDef,
+				driver.DriverClientConfig{
+					ClientIndex: nodeIndex,
+					Subnet:      node.GetL2Subnet(),
+				},
+				nodeClient.L1ExecutionClient,
+				nodeClient.L2ExecutionClient,
+			)
+		}
+
+		if node.L2ProposerClient != "" && proposerDef == nil {
+			t.Fatalf("FAIL: Unable to get proposer client")
+		}
+
+		if node.L2ProposerClient != "" {
+			nodeClient.L2ProposerClient = prep.prepareL2ProposerNode(
+				parentCtx,
+				testnet,
+				proposerDef,
+				proposer.ProposerClientConfig{
+					ClientIndex: nodeIndex,
+					Subnet:      node.GetL2Subnet(),
+				},
+				nodeClient.L1ExecutionClient,
+				nodeClient.L2ExecutionClient,
+			)
+		}
+
+		if node.L2ProverClient != "" && proverDef == nil {
+			t.Fatalf("FAIL: Unable to get prover client")
+		}
+
+		if node.L2ProverClient != "" {
+			nodeClient.L2ProverClient = prep.prepareL2ProverNode(
+				parentCtx,
+				testnet,
+				proverDef,
+				prover.ProverClientConfig{
+					ClientIndex: nodeIndex,
+					Subnet:      node.GetL2Subnet(),
+				},
+				nodeClient.L1ExecutionClient,
+				nodeClient.L2ExecutionClient,
+			)
+		}
 		// Add rest of properties
 		nodeClient.Logging = t
 		nodeClient.Index = nodeIndex
@@ -276,6 +387,8 @@ func StartTestnet(
 			t.Fatalf("FAIL: Unable to start node %d: %v", nodeIndex, err)
 		}
 		//}
+
+		//t.nodeClient.L1L2ProtocolDeployerClient.(clients.HiveManagedClient).HiveClient.Container
 	}
 
 	return testnet

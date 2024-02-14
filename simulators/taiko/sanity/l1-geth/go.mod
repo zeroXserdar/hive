@@ -2,7 +2,8 @@ module github.com/taikoxyz/hive/simulators/taiko/sanity/l1-geth
 
 go 1.18
 
-//replace github.com/taikoxyz/hive/ => ../../../../
+replace github.com/taikoxyz/hive/ v0.0.0-20240202083617-c9e28f81780f => ../../../../
+replace github.com/taikoxyz/hive/hivesim v0.0.0-20240202083617-c9e28f81780f => ../../../../hivesim
 //
 //replace github.com/taikoxyz/hive-taiko-clients => ../../../../../hive-taiko-clients
 
@@ -16,7 +17,7 @@ replace github.com/cockroachdb/pebble => github.com/cockroachdb/pebble v0.0.0-20
 
 require (
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
-	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
+	//github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d
 	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240202100531-e788dd38dbe1
 
 )
@@ -83,9 +84,35 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
+require github.com/taikoxyz/hive v0.0.0-20240202083617-c9e28f81780f
+
 require (
+	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
+	github.com/Microsoft/go-winio v0.6.1 // indirect
 	github.com/cockroachdb/pebble v0.0.0-20230928194634-aa077af62593 // indirect
+	github.com/containerd/containerd v1.6.18 // indirect
+	github.com/docker/docker v24.0.7+incompatible // indirect
+	github.com/docker/go-connections v0.4.0 // indirect
+	github.com/docker/go-units v0.5.0 // indirect
+	github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d // indirect
+	github.com/ethereum/hive/hiveproxy v0.0.0-20230919105823-37cbbe1ef86d // indirect
+	github.com/fsouza/go-dockerclient v1.9.8 // indirect
+	github.com/gorilla/mux v1.8.0 // indirect
+	github.com/hashicorp/yamux v0.1.1 // indirect
+	github.com/lithammer/dedent v1.1.0 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/moby/patternmatcher v0.6.0 // indirect
+	github.com/moby/sys/sequential v0.5.0 // indirect
+	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
+	github.com/morikuni/aec v1.0.0 // indirect
+	github.com/opencontainers/go-digest v1.0.0 // indirect
+	github.com/opencontainers/image-spec v1.0.3-0.20211202183452-c5a74bcca799 // indirect
+	github.com/opencontainers/runc v1.1.5 // indirect
 	github.com/rs/cors v1.8.3 // indirect
 	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117 // indirect
+	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
+	golang.org/x/tools v0.13.0 // indirect
+	gopkg.in/inconshreveable/log15.v2 v2.0.0-20200109203555-b30bc20e4fd1 // indirect
 )

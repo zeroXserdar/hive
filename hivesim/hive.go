@@ -16,7 +16,7 @@ import (
 	"strings"
 
 	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/hive/internal/simapi"
+	"github.com/taikoxyz/hive/internal/simapi"
 )
 
 // Simulation wraps the simulation HTTP API provided by hive.

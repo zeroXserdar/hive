@@ -9,7 +9,7 @@ import (
 	"sync"
 
 	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/hive/internal/simapi"
+	"github.com/taikoxyz/hive/internal/simapi"
 )
 
 // Suite is the description of a test suite.

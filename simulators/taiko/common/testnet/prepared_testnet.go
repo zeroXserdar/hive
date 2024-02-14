@@ -4,6 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/taikoxyz/hive-taiko-clients/clients/taiko/driver"
+	"github.com/taikoxyz/hive-taiko-clients/clients/taiko/proposer"
+	"github.com/taikoxyz/hive-taiko-clients/clients/taiko/prover"
 	"math/big"
 	"os"
 	"time"
@@ -302,7 +305,12 @@ func prepareTestnet(
 	//	consensusConfigOpts,
 	//)
 
+	//TODO: support for genesis and chaingeneration?
+	L2executionOpts := hivesim.Bundle()
 	protocolDeployerOpts := hivesim.Bundle()
+	driverOpts := hivesim.Bundle()
+	proposerOpts := hivesim.Bundle()
+	proverOpts := hivesim.Bundle()
 
 	return &PreparedTestnet{
 		//spec:          spec,
@@ -310,7 +318,11 @@ func prepareTestnet(
 		//eth2Genesis:   state,
 		//keys:          env.Secrets,
 		L1ExecutionOpts:          executionOpts,
+		L2ExecutionOpts:          L2executionOpts,
 		L1L2ProtocolDeployerOpts: protocolDeployerOpts,
+		L2DriverOpts:             driverOpts,
+		L2ProposerOpts:           proposerOpts,
+		L2ProverOpts:             proverOpts,
 		//beaconOpts:    beaconOpts,
 		//validatorOpts: validatorOpts,
 		//keyTranches:   keyTranches,
@@ -344,7 +356,7 @@ func (p *PreparedTestnet) prepareL1ExecutionNode(
 	config execution_client.ExecutionClientConfig,
 ) *execution_client.ExecutionClient {
 	testnet.Logf(
-		"Preparing execution node: %s (%s)",
+		"Preparing L1 execution node: %s (%s)",
 		eth1Def.Name,
 		eth1Def.Version,
 	)
@@ -416,7 +428,7 @@ func (p *PreparedTestnet) prepareL1ExecutionNode(
 	}
 
 	testnet.Logf(
-		"Finished preparing execution node: %s (%s)",
+		"Finished preparing L1 execution node: %s (%s)",
 		eth1Def.Name,
 		eth1Def.Version,
 	)
@@ -433,32 +445,33 @@ func (p *PreparedTestnet) prepareL1ExecutionNode(
 func (p *PreparedTestnet) prepareL2ExecutionNode(
 	parentCtx context.Context,
 	testnet *Testnet,
-	eth1Def *hivesim.ClientDefinition,
+	taikoGethDef *hivesim.ClientDefinition,
 	consensus execution.ExecutionConsensus,
 	chain []*types.Block,
 	config execution_client.ExecutionClientConfig,
+	l1ExecutionClientEndpoint *execution_client.ExecutionClient,
 ) *execution_client.ExecutionClient {
 	testnet.Logf(
-		"Preparing execution node: %s (%s)",
-		eth1Def.Name,
-		eth1Def.Version,
+		"Preparing L2 execution node: %s (%s)",
+		taikoGethDef.Name,
+		taikoGethDef.Version,
 	)
 
 	cm := &clients.HiveManagedClient{
 		T:                    testnet.T,
-		HiveClientDefinition: eth1Def,
+		HiveClientDefinition: taikoGethDef,
 	}
 
 	// This method will return the options used to run the client.
 	// Requires a method that returns the rest of the currently running
 	// execution clients on the network at startup.
 	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
-		opts := []hivesim.StartOption{p.L1ExecutionOpts}
+		opts := []hivesim.StartOption{p.L2ExecutionOpts}
 		opts = append(opts, consensus.HiveParams(config.ClientIndex))
 
-		currentlyRunningEcs := testnet.L2ExecutionClients().
+		currentlyRunningEcs := testnet.L1ExecutionClients().
 			Running().
-			Subnet(config.Subnet)
+			Subnet(l1ExecutionClientEndpoint.Config.Subnet)
 		if len(currentlyRunningEcs) > 0 {
 			bootnode, err := currentlyRunningEcs.Enodes()
 			if err != nil {
@@ -511,9 +524,9 @@ func (p *PreparedTestnet) prepareL2ExecutionNode(
 	}
 
 	testnet.Logf(
-		"Finished preparing execution node: %s (%s)",
-		eth1Def.Name,
-		eth1Def.Version,
+		"Finished preparing L2 execution node: %s (%s)",
+		taikoGethDef.Name,
+		taikoGethDef.Version,
 	)
 
 	return &execution_client.ExecutionClient{
@@ -636,6 +649,409 @@ func (p *PreparedTestnet) prepareL1L2ProtocolDeployerNode(
 		"Finished preparing protocol deployer node: %s (%s)",
 		protocolDeployerDef.Name,
 		protocolDeployerDef.Version,
+	)
+	return cl
+}
+
+func (p *PreparedTestnet) prepareL2DriverNode(
+	parentCtx context.Context,
+	testnet *Testnet,
+	driverDef *hivesim.ClientDefinition,
+	config driver.DriverClientConfig,
+	l1ExecutionClientEndpoint *execution_client.ExecutionClient,
+	l2ExecutionClientEndpoint *execution_client.ExecutionClient,
+) *driver.DriverClient {
+	testnet.Logf(
+		"Preparing L2 driver node: %s (%s)",
+		driverDef.Name,
+		driverDef.Version,
+	)
+
+	if l1ExecutionClientEndpoint == nil || l2ExecutionClientEndpoint == nil {
+		panic(fmt.Errorf("both l1, l2 execution client endpoints are required"))
+	}
+
+	cm := &clients.HiveManagedClient{
+		T:                    testnet.T,
+		HiveClientDefinition: driverDef,
+	}
+
+	cl := &driver.DriverClient{
+		Client: cm,
+		Logger: testnet.T,
+		Config: config,
+	}
+
+	//if enableBuilders {
+	//	simIP, err := testnet.T.Sim.ContainerNetworkIP(
+	//		testnet.T.SuiteID,
+	//		"bridge",
+	//		"simulation",
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//
+	//	options := []mock_builder.Option{
+	//		mock_builder.WithExternalIP(net.ParseIP(simIP)),
+	//		mock_builder.WithPort(
+	//			mock_builder.DEFAULT_BUILDER_PORT + config.ClientIndex,
+	//		),
+	//		mock_builder.WithID(config.ClientIndex),
+	//		mock_builder.WithBeaconGenesisTime(testnet.genesisTime),
+	//		mock_builder.WithSpec(p.spec),
+	//	}
+	//
+	//	if builderOptions != nil {
+	//		options = append(options, builderOptions...)
+	//	}
+	//
+	//	cl.Builder, err = mock_builder.NewMockBuilder(
+	//		context.Background(),
+	//		eth1Endpoints[0],
+	//		cl,
+	//		options...,
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//}
+
+	// This method will return the options used to run the client.
+	// Requires a method that returns the rest of the currently running
+	// beacon clients on the network at startup.
+	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
+		opts := []hivesim.StartOption{p.L2DriverOpts}
+
+		l1ExecutionClient := *l1ExecutionClientEndpoint
+		l2ExecutionClient := *l2ExecutionClientEndpoint
+
+		if !l1ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 driver node when the L1 execution client is not yet running",
+			)
+		}
+		if !l2ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 driver node when the L2 execution client is not yet running",
+			)
+		}
+
+		//execNode := deploymentTargetExecutionClient.Proxy()
+		//userRPC, err := execNode.UserRPCAddress()
+		l1UserRPC, err := l1ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l1 execution client node used for driver without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_MAINNET_URL": l1UserRPC,
+		})
+
+		l2UserRPC, err := l2ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l2 execution client node used for driver without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_URL": l2UserRPC,
+		})
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_ROLE": "driver",
+		})
+
+		//opts = append(
+		//	opts,
+		//	hivesim.Params{
+		//		"HIVE_TERMINAL_TOTAL_DIFFICULTY": fmt.Sprintf(
+		//			"%d",
+		//			config.TerminalTotalDifficulty,
+		//		),
+		//	},
+		//)
+
+		return opts, nil
+	}
+
+	testnet.Logf(
+		"Finished preparing driver node: %s (%s)",
+		driverDef.Name,
+		driverDef.Version,
+	)
+	return cl
+}
+
+func (p *PreparedTestnet) prepareL2ProposerNode(
+	parentCtx context.Context,
+	testnet *Testnet,
+	proposerDef *hivesim.ClientDefinition,
+	config proposer.ProposerClientConfig,
+	l1ExecutionClientEndpoint *execution_client.ExecutionClient,
+	l2ExecutionClientEndpoint *execution_client.ExecutionClient,
+) *proposer.ProposerClient {
+	testnet.Logf(
+		"Preparing L2 proposer node: %s (%s)",
+		proposerDef.Name,
+		proposerDef.Version,
+	)
+
+	if l1ExecutionClientEndpoint == nil || l2ExecutionClientEndpoint == nil {
+		panic(fmt.Errorf("both l1, l2 execution client endpoints are required"))
+	}
+
+	cm := &clients.HiveManagedClient{
+		T:                    testnet.T,
+		HiveClientDefinition: proposerDef,
+	}
+
+	cl := &proposer.ProposerClient{
+		Client: cm,
+		Logger: testnet.T,
+		Config: config,
+	}
+
+	//if enableBuilders {
+	//	simIP, err := testnet.T.Sim.ContainerNetworkIP(
+	//		testnet.T.SuiteID,
+	//		"bridge",
+	//		"simulation",
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//
+	//	options := []mock_builder.Option{
+	//		mock_builder.WithExternalIP(net.ParseIP(simIP)),
+	//		mock_builder.WithPort(
+	//			mock_builder.DEFAULT_BUILDER_PORT + config.ClientIndex,
+	//		),
+	//		mock_builder.WithID(config.ClientIndex),
+	//		mock_builder.WithBeaconGenesisTime(testnet.genesisTime),
+	//		mock_builder.WithSpec(p.spec),
+	//	}
+	//
+	//	if builderOptions != nil {
+	//		options = append(options, builderOptions...)
+	//	}
+	//
+	//	cl.Builder, err = mock_builder.NewMockBuilder(
+	//		context.Background(),
+	//		eth1Endpoints[0],
+	//		cl,
+	//		options...,
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//}
+
+	// This method will return the options used to run the client.
+	// Requires a method that returns the rest of the currently running
+	// beacon clients on the network at startup.
+	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
+		opts := []hivesim.StartOption{p.L2ProposerOpts}
+
+		l1ExecutionClient := *l1ExecutionClientEndpoint
+		l2ExecutionClient := *l2ExecutionClientEndpoint
+
+		if !l1ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 proposer node when the L1 execution client is not yet running",
+			)
+		}
+		if !l2ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 proposer node when the L2 execution client is not yet running",
+			)
+		}
+
+		//execNode := deploymentTargetExecutionClient.Proxy()
+		//userRPC, err := execNode.UserRPCAddress()
+		l1UserRPC, err := l1ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l1 execution client node used for proposer without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_MAINNET_URL": l1UserRPC,
+		})
+
+		l2UserRPC, err := l2ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l2 execution client node used for proposer without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_URL": l2UserRPC,
+		})
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_ROLE": "proposer",
+		})
+		//opts = append(
+		//	opts,
+		//	hivesim.Params{
+		//		"HIVE_TERMINAL_TOTAL_DIFFICULTY": fmt.Sprintf(
+		//			"%d",
+		//			config.TerminalTotalDifficulty,
+		//		),
+		//	},
+		//)
+
+		return opts, nil
+	}
+
+	testnet.Logf(
+		"Finished preparing proposer deployer node: %s (%s)",
+		proposerDef.Name,
+		proposerDef.Version,
+	)
+	return cl
+}
+
+func (p *PreparedTestnet) prepareL2ProverNode(
+	parentCtx context.Context,
+	testnet *Testnet,
+	proverDef *hivesim.ClientDefinition,
+	config prover.ProverClientConfig,
+	l1ExecutionClientEndpoint *execution_client.ExecutionClient,
+	l2ExecutionClientEndpoint *execution_client.ExecutionClient,
+) *prover.ProverClient {
+	testnet.Logf(
+		"Preparing L2 prover node: %s (%s)",
+		proverDef.Name,
+		proverDef.Version,
+	)
+
+	if l1ExecutionClientEndpoint == nil || l2ExecutionClientEndpoint == nil {
+		panic(fmt.Errorf("both l1, l2 execution client endpoints are required"))
+	}
+
+	cm := &clients.HiveManagedClient{
+		T:                    testnet.T,
+		HiveClientDefinition: proverDef,
+	}
+
+	cl := &prover.ProverClient{
+		Client: cm,
+		Logger: testnet.T,
+		Config: config,
+	}
+
+	//if enableBuilders {
+	//	simIP, err := testnet.T.Sim.ContainerNetworkIP(
+	//		testnet.T.SuiteID,
+	//		"bridge",
+	//		"simulation",
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//
+	//	options := []mock_builder.Option{
+	//		mock_builder.WithExternalIP(net.ParseIP(simIP)),
+	//		mock_builder.WithPort(
+	//			mock_builder.DEFAULT_BUILDER_PORT + config.ClientIndex,
+	//		),
+	//		mock_builder.WithID(config.ClientIndex),
+	//		mock_builder.WithBeaconGenesisTime(testnet.genesisTime),
+	//		mock_builder.WithSpec(p.spec),
+	//	}
+	//
+	//	if builderOptions != nil {
+	//		options = append(options, builderOptions...)
+	//	}
+	//
+	//	cl.Builder, err = mock_builder.NewMockBuilder(
+	//		context.Background(),
+	//		eth1Endpoints[0],
+	//		cl,
+	//		options...,
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//}
+
+	// This method will return the options used to run the client.
+	// Requires a method that returns the rest of the currently running
+	// beacon clients on the network at startup.
+	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
+		opts := []hivesim.StartOption{p.L2ProverOpts}
+
+		l1ExecutionClient := *l1ExecutionClientEndpoint
+		l2ExecutionClient := *l2ExecutionClientEndpoint
+
+		if !l1ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 prover node when the L1 execution client is not yet running",
+			)
+		}
+		if !l2ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 prover node when the L2 execution client is not yet running",
+			)
+		}
+
+		//execNode := deploymentTargetExecutionClient.Proxy()
+		//userRPC, err := execNode.UserRPCAddress()
+		l1UserRPC, err := l1ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l1 execution client node used for prover without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_MAINNET_URL": l1UserRPC,
+		})
+
+		l2UserRPC, err := l2ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l2 execution client node used for prover without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_URL": l2UserRPC,
+		})
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_ROLE": "prover",
+		})
+		//opts = append(
+		//	opts,
+		//	hivesim.Params{
+		//		"HIVE_TERMINAL_TOTAL_DIFFICULTY": fmt.Sprintf(
+		//			"%d",
+		//			config.TerminalTotalDifficulty,
+		//		),
+		//	},
+		//)
+
+		return opts, nil
+	}
+
+	testnet.Logf(
+		"Finished preparing prover node: %s (%s)",
+		proverDef.Name,
+		proverDef.Version,
 	)
 	return cl
 }

@@ -99,6 +99,10 @@ github.com/ethereum/c-kzg-4844 v0.4.0 h1:3MS1s4JtA868KpJxroZoepdV0ZKBp3u/O5HcZ7R
 github.com/ethereum/c-kzg-4844 v0.4.0/go.mod h1:VewdlzQmpT5QSrVhbBuGoCdFJkpaJlO1aQputP83wc0=
 github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3 h1:i4TE0DmzMYcr2IiCdlTGGk+7Q/EzXvBKbbG4uRxMjJ0=
 github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3/go.mod h1:yMTu38GSuyxaYzQMViqNmQ1s3cE84abZexQmTgenWk0=
+github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d h1:aYS/z/WooDYsJKpOoZ/ha8Zg+CwSf9Kp1919rnmmC0s=
+github.com/ethereum/hive v0.0.0-20230401205547-71595beab31d/go.mod h1:zKL2DscVzRusnGVpseAvLrXGJ3qrGHuSfOIrv4JfnRk=
+github.com/ethereum/hive v0.0.0-20240214124659-5511aef04fa6 h1:pN/26K0MjceItWuymgxDm8qAwEdTcHDiLYOjFHzz1DA=
+github.com/ethereum/hive v0.0.0-20240214124659-5511aef04fa6/go.mod h1:D0RJuJaAolOejqq/n0YoX7VbPzkooLHwCSoaQn2z6xY=
 github.com/evanw/esbuild v0.18.11 h1:Mb0qb9KyJQraob0Y7LA0DOdD8ijJs2TxhqgqrDeGq4w=
 github.com/evanw/esbuild v0.18.11/go.mod h1:iINY06rn799hi48UqEnaQvVfZWe6W9bET78LbvN8VWk=
 github.com/fasthttp-contrib/websocket v0.0.0-20160511215533-1f3b11f56072/go.mod h1:duJ4Jxv5lDcvg4QuQr0oowTf7dz4/CR8NtyCooz9HL8=

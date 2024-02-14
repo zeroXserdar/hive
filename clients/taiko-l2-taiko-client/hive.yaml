@@ -1,0 +1,4 @@
+roles:
+  - l2_driver
+  - l2_proposer
+  - l2_prover

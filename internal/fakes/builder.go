@@ -4,7 +4,7 @@ import (
 	"context"
 	"io/fs"
 
-	"github.com/ethereum/hive/internal/libhive"
+	"github.com/taikoxyz/hive/internal/libhive"
 )
 
 // BuilderHooks can be used to override the behavior of the fake builder.

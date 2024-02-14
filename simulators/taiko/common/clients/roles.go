@@ -29,7 +29,7 @@ func ClientsByRole(
 			out.L2DriverClient = append(out.L2DriverClient, client)
 		}
 		if client.HasRole("l2_proposer") {
-			out.L2DriverClient = append(out.L2DriverClient, client)
+			out.L2ProposerClient = append(out.L2ProposerClient, client)
 		}
 		if client.HasRole("l2_prover") {
 			out.L2ProverClient = append(out.L2ProverClient, client)
@@ -88,8 +88,20 @@ func (c *ClientDefinitionsByRole) Combinations() NodeDefinitions {
 		NodeDefinition{
 			L1ExecutionClient: c.L1ExecutionClient[0].Name,
 		})
+	if len(c.L2ExecutionClient) == 1 {
+		nodes[0].L2ExecutionClient = c.L2ExecutionClient[0].Name
+	}
 	if len(c.L1L2ProtocolDeployerClient) == 1 {
 		nodes[0].L1L2ProtocolDeployerClient = c.L1L2ProtocolDeployerClient[0].Name
+	}
+	if len(c.L2DriverClient) == 1 {
+		nodes[0].L2DriverClient = c.L2DriverClient[0].Name
+	}
+	if len(c.L2ProposerClient) == 1 {
+		nodes[0].L2ProposerClient = c.L2ProposerClient[0].Name
+	}
+	if len(c.L2ProverClient) == 1 {
+		nodes[0].L2ProverClient = c.L2ProverClient[0].Name
 	}
 	return nodes
 }

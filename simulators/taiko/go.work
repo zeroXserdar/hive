@@ -8,4 +8,7 @@ use (
 	//./sanity-l1-geth
 	./sanity/l1-geth
 	./sanity/protocol-l1
+	./sanity/protocol-l2
+	./sanity/l2-taiko-geth
+	./sanity/l2-taiko-client
 )

@@ -96,3 +96,5 @@ require (
 replace github.com/taikoxyz/hive/hiveproxy => ./hiveproxy
 
 replace github.com/taikoxyz/hive => ./
+replace github.com/taikoxyz/hive/hivesim => ./hivesim
+

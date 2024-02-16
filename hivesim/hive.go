@@ -306,6 +306,20 @@ func (sim *Simulation) ClientExec(testSuite SuiteID, test TestID, nodeid string,
 	return resp, err
 }
 
+func (sim *Simulation) ClientGetDeployAddr(testSuite SuiteID, test TestID, nodeid string, addrVarName string) (string, error) {
+	resp, err := sim.ClientExec(testSuite, test, nodeid, []string{fmt.Sprintf("/get_deploy_address.sh %s", addrVarName)})
+	if err != nil {
+		return "", err
+	}
+	if resp.ExitCode != 0 {
+		return "", errors.New("unexpected exit code for getting Deploy Env Var")
+	}
+
+	output := resp.Stdout
+
+	return output, nil
+}
+
 // CreateNetwork sends a request to the hive server to create a docker network by
 // the given name.
 func (sim *Simulation) CreateNetwork(testSuite SuiteID, networkName string) error {

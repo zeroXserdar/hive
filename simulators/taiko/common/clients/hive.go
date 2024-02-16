@@ -1,7 +1,6 @@
 package clients
 
 import (
-	"errors"
 	"fmt"
 	"github.com/taikoxyz/hive-taiko-clients/clients"
 	"github.com/taikoxyz/hive/hivesim"
@@ -105,16 +104,13 @@ func (h *HiveManagedClient) GetAddress() string {
 	return h.HiveClient.IP.String()
 }
 
-func (h *HiveManagedClient) GetEnvVar(t *hivesim.T, testSuite hivesim.SuiteID, test hivesim.TestID, node string, network string, varName string) (string, error) {
-	resp, err := t.Sim.ClientExec(testSuite, test, node, []string{fmt.Sprintf("cat /saved_env.txt | grep %s | cut -d '=' -f2-", varName)})
+func (h *HiveManagedClient) GetDeployAddr(addrVarName string) string {
+	if h.HiveClient == nil {
+		return ""
+	}
+	deployAddr, err := h.HiveClient.GetDeployAddr(addrVarName)
 	if err != nil {
-		return "", err
+		return ""
 	}
-	if resp.ExitCode != 0 {
-		return "", errors.New("unexpected exit code for getting Env Var")
-	}
-
-	output := resp.Stdout
-
-	return output, nil
+	return deployAddr
 }

@@ -334,6 +334,7 @@ func StartTestnet(
 				},
 				nodeClient.L1ExecutionClient,
 				nodeClient.L2ExecutionClient,
+				nodeClient.L1L2ProtocolDeployerClient,
 			)
 		}
 

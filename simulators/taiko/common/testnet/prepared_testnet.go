@@ -660,6 +660,7 @@ func (p *PreparedTestnet) prepareL2DriverNode(
 	config driver.DriverClientConfig,
 	l1ExecutionClientEndpoint *execution_client.ExecutionClient,
 	l2ExecutionClientEndpoint *execution_client.ExecutionClient,
+	l1l2ProtocolDeployerClientEndpoint *protocol_deployer_client.ProtocolDeployerClient,
 ) *driver.DriverClient {
 	testnet.Logf(
 		"Preparing L2 driver node: %s (%s)",
@@ -676,50 +677,6 @@ func (p *PreparedTestnet) prepareL2DriverNode(
 		HiveClientDefinition: driverDef,
 	}
 
-	cl := &driver.DriverClient{
-		Client: cm,
-		Logger: testnet.T,
-		Config: config,
-	}
-
-	//if enableBuilders {
-	//	simIP, err := testnet.T.Sim.ContainerNetworkIP(
-	//		testnet.T.SuiteID,
-	//		"bridge",
-	//		"simulation",
-	//	)
-	//	if err != nil {
-	//		panic(err)
-	//	}
-	//
-	//	options := []mock_builder.Option{
-	//		mock_builder.WithExternalIP(net.ParseIP(simIP)),
-	//		mock_builder.WithPort(
-	//			mock_builder.DEFAULT_BUILDER_PORT + config.ClientIndex,
-	//		),
-	//		mock_builder.WithID(config.ClientIndex),
-	//		mock_builder.WithBeaconGenesisTime(testnet.genesisTime),
-	//		mock_builder.WithSpec(p.spec),
-	//	}
-	//
-	//	if builderOptions != nil {
-	//		options = append(options, builderOptions...)
-	//	}
-	//
-	//	cl.Builder, err = mock_builder.NewMockBuilder(
-	//		context.Background(),
-	//		eth1Endpoints[0],
-	//		cl,
-	//		options...,
-	//	)
-	//	if err != nil {
-	//		panic(err)
-	//	}
-	//}
-
-	// This method will return the options used to run the client.
-	// Requires a method that returns the rest of the currently running
-	// beacon clients on the network at startup.
 	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
 		opts := []hivesim.StartOption{p.L2DriverOpts}
 
@@ -767,18 +724,56 @@ func (p *PreparedTestnet) prepareL2DriverNode(
 			"HIVE_TAIKO_ROLE": "driver",
 		})
 
-		//opts = append(
-		//	opts,
-		//	hivesim.Params{
-		//		"HIVE_TERMINAL_TOTAL_DIFFICULTY": fmt.Sprintf(
-		//			"%d",
-		//			config.TerminalTotalDifficulty,
-		//		),
-		//	},
-		//)
-
+		currentlyRunningProtocolDeployers := testnet.L1L2ProtocolDeployerClients().
+			Running().
+			Subnet(config.Subnet)
+		if len(currentlyRunningProtocolDeployers) > 0 {
+			taikoL1Address := cm.GetDeployAddr("TAIKO_L1_ADDRESS")
+			opts = append(opts, hivesim.Params{"HIVE_TAIKO_L1_ADDRESS": taikoL1Address})
+		}
 		return opts, nil
 	}
+
+	cl := &driver.DriverClient{
+		Client: cm,
+		Logger: testnet.T,
+		Config: config,
+	}
+
+	//if enableBuilders {
+	//	simIP, err := testnet.T.Sim.ContainerNetworkIP(
+	//		testnet.T.SuiteID,
+	//		"bridge",
+	//		"simulation",
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//
+	//	options := []mock_builder.Option{
+	//		mock_builder.WithExternalIP(net.ParseIP(simIP)),
+	//		mock_builder.WithPort(
+	//			mock_builder.DEFAULT_BUILDER_PORT + config.ClientIndex,
+	//		),
+	//		mock_builder.WithID(config.ClientIndex),
+	//		mock_builder.WithBeaconGenesisTime(testnet.genesisTime),
+	//		mock_builder.WithSpec(p.spec),
+	//	}
+	//
+	//	if builderOptions != nil {
+	//		options = append(options, builderOptions...)
+	//	}
+	//
+	//	cl.Builder, err = mock_builder.NewMockBuilder(
+	//		context.Background(),
+	//		eth1Endpoints[0],
+	//		cl,
+	//		options...,
+	//	)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//}
 
 	testnet.Logf(
 		"Finished preparing driver node: %s (%s)",

@@ -97,4 +97,5 @@ func chainId31336(t *hivesim.T, testnetInstance *testnet.Testnet) {
 	if chainId != 31336 {
 		t.Fatalf("ChainId is not equal 31336, it is %i", chainId)
 	}
+	//time.Sleep(time.Hour)
 }

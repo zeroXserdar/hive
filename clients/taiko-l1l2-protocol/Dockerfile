@@ -22,6 +22,9 @@ ENV PATH="/root/.foundry/bin:${PATH}"
 RUN apt-get update
 RUN apt-get install -y netcat-traditional
 
+COPY get_deploy_address.sh /get_deploy_address.sh
+RUN chmod u+x /get_deploy_address.sh
+
 COPY saved_env.txt /saved_env.txt
 COPY ./start.sh /start.sh
 

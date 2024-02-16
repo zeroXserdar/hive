@@ -2,9 +2,11 @@ module github.com/taikoxyz/hive/simulators/taiko/common
 
 go 1.18
 
-//replace github.com/taikoxyz/hive-taiko-clients => ../../../../hive-taiko-clients
+replace github.com/taikoxyz/hive-taiko-clients => ../../../../hive-taiko-clients
 
 replace github.com/taikoxyz/hive/simulators/taiko/common => ./
+
+replace github.com/taikoxyz/hive => ../../../
 
 replace github.com/ethereum/go-ethereum v1.13.1 => github.com/ethereum/go-ethereum v1.11.5
 
@@ -22,7 +24,7 @@ require (
 	github.com/protolambda/zrnt v0.30.0
 	github.com/protolambda/ztyp v0.2.2
 	github.com/rauljordan/engine-proxy v0.0.0-20230316220057-4c80c36c4c3a
-	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117
+	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240215131450-c7052d476862
 	github.com/tyler-smith/go-bip39 v1.1.0
 	github.com/wealdtech/go-eth2-util v1.8.1
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9

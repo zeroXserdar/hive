@@ -104,7 +104,7 @@ require (
 	github.com/opencontainers/runc v1.1.5 // indirect
 	github.com/rs/cors v1.8.3 // indirect
 	github.com/taikoxyz/hive v0.0.0-20240214144745-e53c007fe257 // indirect
-	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117 // indirect
+	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240215131450-c7052d476862 // indirect
 	github.com/taikoxyz/hive/hiveproxy v0.0.0-20240214143925-ec0b36a20cd4 // indirect
 	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.17.0 // indirect

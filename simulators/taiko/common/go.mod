@@ -102,8 +102,8 @@ require (
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
-	github.com/taikoxyz/hive v0.0.0-20240214144745-e53c007fe257 // indirect
-	github.com/taikoxyz/hive/hiveproxy v0.0.0-20240214143925-ec0b36a20cd4 // indirect
+	github.com/taikoxyz/hive v0.0.0-20240216041901-c05b16635cb1 // indirect
+	github.com/taikoxyz/hive/hiveproxy v0.0.0-20240216041901-c05b16635cb1 // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
 	github.com/tklauser/numcpus v0.6.1 // indirect
 	github.com/wealdtech/go-bytesutil v1.2.1 // indirect

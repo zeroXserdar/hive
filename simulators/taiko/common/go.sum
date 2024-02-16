@@ -883,6 +883,8 @@ github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367/go.mod
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117/go.mod h1:S/FYorE4XUN82JTV3m2tW6rSHEm11Mo0oCdUUChKfQo=
 github.com/taikoxyz/hive/hiveproxy v0.0.0-20240214143925-ec0b36a20cd4 h1:VRfv9Uk1rzoWmzDm89AHv2KWVp99V/vQWJF5zgdZ5h8=
 github.com/taikoxyz/hive/hiveproxy v0.0.0-20240214143925-ec0b36a20cd4/go.mod h1:Cg4zbdQ/rEmfiaCxVdO9BNbahO2HDMIFPpsXb5Uw2ls=
+github.com/taikoxyz/hive/hiveproxy v0.0.0-20240216041901-c05b16635cb1 h1:XogPCTtycbhN8fLM0yD20wYpz+3Ycl7WT3u6Ti5ih2E=
+github.com/taikoxyz/hive/hiveproxy v0.0.0-20240216041901-c05b16635cb1/go.mod h1:Cg4zbdQ/rEmfiaCxVdO9BNbahO2HDMIFPpsXb5Uw2ls=
 github.com/tchap/go-patricia v2.2.6+incompatible/go.mod h1:bmLyhP68RS6kStMGxByiQ23RP/odRBOTVjwp2cDyi6I=
 github.com/tklauser/go-sysconf v0.3.11 h1:89WgdJhk5SNwJfu+GKyYveZ4IaJ7xAkecBo+KdJV0CM=
 github.com/tklauser/go-sysconf v0.3.11/go.mod h1:GqXfhXY3kiPa0nAXPDIQIWzJbMCB7AmcWpGR8lSZfqI=

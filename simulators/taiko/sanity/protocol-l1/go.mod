@@ -103,9 +103,9 @@ require (
 	github.com/opencontainers/image-spec v1.0.3-0.20211202183452-c5a74bcca799 // indirect
 	github.com/opencontainers/runc v1.1.5 // indirect
 	github.com/rs/cors v1.8.3 // indirect
-	github.com/taikoxyz/hive v0.0.0-20240214144745-e53c007fe257 // indirect
+	github.com/taikoxyz/hive v0.0.0-20240216041901-c05b16635cb1 // indirect
 	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240215131450-c7052d476862 // indirect
-	github.com/taikoxyz/hive/hiveproxy v0.0.0-20240214143925-ec0b36a20cd4 // indirect
+	github.com/taikoxyz/hive/hiveproxy v0.0.0-20240216041901-c05b16635cb1 // indirect
 	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/tools v0.13.0 // indirect

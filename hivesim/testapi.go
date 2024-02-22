@@ -188,6 +188,10 @@ func (c *Client) GetDeployAddr(addrVarName string) (string, error) {
 	return c.test.Sim.ClientGetDeployAddr(c.test.SuiteID, c.test.TestID, c.Container, addrVarName)
 }
 
+func (c *Client) GetJWTSecret() (string, error) {
+	return c.test.Sim.ClientGetJWTSecret(c.test.SuiteID, c.test.TestID, c.Container)
+}
+
 // Exec runs a script in the client container.
 func (c *Client) Exec(command ...string) (*ExecInfo, error) {
 	return c.test.Sim.ClientExec(c.test.SuiteID, c.test.TestID, c.Container, command)

@@ -116,3 +116,14 @@ func (h *HiveManagedClient) GetDeployAddr(addrVarName string) (string, error) {
 	}
 	return deployAddr, nil
 }
+
+func (h *HiveManagedClient) GetJWTSecret() (string, error) {
+	if h.HiveClient == nil {
+		return "", errors.New("HiveClient not found")
+	}
+	deployAddr, err := h.HiveClient.GetJWTSecret()
+	if err != nil {
+		return "", err
+	}
+	return deployAddr, nil
+}

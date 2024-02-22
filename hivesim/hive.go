@@ -321,6 +321,20 @@ func (sim *Simulation) ClientGetDeployAddr(testSuite SuiteID, test TestID, nodei
 	return output, nil
 }
 
+func (sim *Simulation) ClientGetJWTSecret(testSuite SuiteID, test TestID, nodeid string) (string, error) {
+	resp, err := sim.ClientExec(testSuite, test, nodeid, []string{"get_jwt_secret.sh"})
+	if err != nil {
+		return "", err
+	}
+	if resp.ExitCode != 0 {
+		return "", errors.New("unexpected exit code for getting JWT Secret")
+	}
+
+	output := resp.Stdout
+
+	return output, nil
+}
+
 // CreateNetwork sends a request to the hive server to create a docker network by
 // the given name.
 func (sim *Simulation) CreateNetwork(testSuite SuiteID, networkName string) error {

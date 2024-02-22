@@ -4,6 +4,9 @@ RUN apk add --update bash jq curl
 RUN which bash
 RUN echo $SHELL
 
+COPY get_jwt_secret.sh /hive-bin/
+RUN chmod u+x /hive-bin/get_jwt_secret.sh
+
 COPY enode.sh /hive-bin/enode.sh
 RUN chmod +x /hive-bin/enode.sh
 ENV HIVE_NETWORK_ID=167001

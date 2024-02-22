@@ -1,6 +1,12 @@
 #!/bin/bash
 echo "Script executed: $0 $@" > /root/script_execution.log
 
+#sleep_file="/root/sleep"
+#
+#if [ -f "$sleep_file" ]; then
+#    sleep 1h
+#fi
+
 input_file=/root/deploy.log
 # Define the search string
 taiko_l1_address_search_string="^\s*-\s*taikoL1Addr\s*:\s*"
@@ -54,7 +60,7 @@ TAIKO_L1_TOKEN_ADDRESS)
   fi
   eval "$cmd"
   if [[ -n "$TAIKO_L1_TOKEN_ADDRESS" ]]; then
-    echo TAIKO_L1_TOKEN_ADDRESS
+    echo $TAIKO_L1_TOKEN_ADDRESS
     exit 0
   else
     echo "TAIKO_L1_TOKEN_ADDRESS not found"

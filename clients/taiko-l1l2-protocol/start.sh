@@ -1,6 +1,6 @@
 #!/bin/bash
 source /saved_env.txt
-
+touch /root/sleep
 TAIKO_URL=$HIVE_TAIKO_URL
 URL="${TAIKO_URL/http:\/\//}"
 

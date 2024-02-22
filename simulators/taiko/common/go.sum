@@ -881,6 +881,8 @@ github.com/taikoxyz/hive v0.0.0-20240214144745-e53c007fe257 h1:dVLu7xegpEXWmeElJ
 github.com/taikoxyz/hive v0.0.0-20240214144745-e53c007fe257/go.mod h1:9I3ZgRAy9yrQqmVIgBjC9ThAHJmBMNQejePdwCqu2Jg=
 github.com/taikoxyz/hive v0.0.0-20240222050730-b2e04359c188 h1:lxNzWQIGQIAqH2PMrs51o4uatO8CnmDaHvHI8/ztUIA=
 github.com/taikoxyz/hive v0.0.0-20240222050730-b2e04359c188/go.mod h1:Za83iNk0HIt4jlNarm0633vQC40e6Go0m6ZfdPxGQPQ=
+github.com/taikoxyz/hive v0.0.0-20240222053728-4d0327f91502 h1:AiD+gZ+h7TwvQCtYquXeeJEGJatb6eNXomrbfxIhqHI=
+github.com/taikoxyz/hive v0.0.0-20240222053728-4d0327f91502/go.mod h1:Za83iNk0HIt4jlNarm0633vQC40e6Go0m6ZfdPxGQPQ=
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367/go.mod h1:GDv68FknaQLKXovnGjOt7GKPR/SAbqCw05nQ4S+TAb0=
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117/go.mod h1:S/FYorE4XUN82JTV3m2tW6rSHEm11Mo0oCdUUChKfQo=
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216123906-e77fdbfbe38e/go.mod h1:9Y4doSzyDjOCmDVvCMrC89XgiFcbGDh8MtETJ1WWHb4=

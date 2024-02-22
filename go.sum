@@ -371,6 +371,10 @@ github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a h1:1ur3QoCqvE5f
 github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a/go.mod h1:RRCYJbIwD5jmqPI9XoAFR0OcDxqUctll6zUj/+B4S48=
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240215131450-c7052d476862 h1:ynbNmZMglNWI+ELerfin/dAvEnmwdMDNjoY+AIMYJz8=
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240215131450-c7052d476862/go.mod h1:9Y4doSzyDjOCmDVvCMrC89XgiFcbGDh8MtETJ1WWHb4=
+github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216120821-e29756f998de h1:ZiTB1mWqI1qZNPphvV+u6qJBCaQjLOW+YWi1hOSfDqk=
+github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216120821-e29756f998de/go.mod h1:9Y4doSzyDjOCmDVvCMrC89XgiFcbGDh8MtETJ1WWHb4=
+github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216123906-e77fdbfbe38e h1:3rkcnSCP58R3lawdI2dUCQxvILVW7+F/ADE6jwoqnFY=
+github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216123906-e77fdbfbe38e/go.mod h1:9Y4doSzyDjOCmDVvCMrC89XgiFcbGDh8MtETJ1WWHb4=
 github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240216041901-c05b16635cb1 h1:yGPF7mqZA75DDGiutu+nZo/4tCZQtz3IcU4+v1fnW2M=
 github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240216041901-c05b16635cb1/go.mod h1:L8gHWMIA3BCBSm1qUnx5tScBO2adz150iZKMTWwowXY=
 github.com/tklauser/go-sysconf v0.3.12 h1:0QaGUFOdQaIVdPgfITYzaTegZvdCjmYO52cSFAEVmqU=

@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Script executed: $0 $@" > /root/script_execution.log
 
 input_file=/root/deploy.log
 # Define the search string

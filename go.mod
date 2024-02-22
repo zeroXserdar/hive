@@ -80,7 +80,7 @@ require (
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/supranational/blst v0.3.11 // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
-	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240215131450-c7052d476862 // indirect
+	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216123906-e77fdbfbe38e // indirect
 	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240216041901-c05b16635cb1 // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
 	github.com/tklauser/numcpus v0.6.1 // indirect

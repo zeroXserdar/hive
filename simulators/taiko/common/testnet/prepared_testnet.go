@@ -668,6 +668,8 @@ func (p *PreparedTestnet) prepareL2DriverNode(
 		driverDef.Version,
 	)
 
+	//panic(fmt.Errorf("prepareL2DriverNode Blablalba"))
+
 	if l1ExecutionClientEndpoint == nil || l2ExecutionClientEndpoint == nil {
 		panic(fmt.Errorf("both l1, l2 execution client endpoints are required"))
 	}
@@ -682,6 +684,7 @@ func (p *PreparedTestnet) prepareL2DriverNode(
 
 		l1ExecutionClient := *l1ExecutionClientEndpoint
 		l2ExecutionClient := *l2ExecutionClientEndpoint
+		l1l2ProtocolDeployerClient := *l1l2ProtocolDeployerClientEndpoint
 
 		if !l1ExecutionClient.IsRunning() {
 			return nil, fmt.Errorf(
@@ -691,6 +694,12 @@ func (p *PreparedTestnet) prepareL2DriverNode(
 		if !l2ExecutionClient.IsRunning() {
 			return nil, fmt.Errorf(
 				"attempted to start L2 driver node when the L2 execution client is not yet running",
+			)
+		}
+
+		if !l1l2ProtocolDeployerClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 driver node when the L1L2 protocol deployer client is not yet running",
 			)
 		}
 
@@ -724,13 +733,23 @@ func (p *PreparedTestnet) prepareL2DriverNode(
 			"HIVE_TAIKO_ROLE": "driver",
 		})
 
+		//panic(fmt.Errorf("Blablalba"))
 		currentlyRunningProtocolDeployers := testnet.L1L2ProtocolDeployerClients().
 			Running().
 			Subnet(config.Subnet)
 		if len(currentlyRunningProtocolDeployers) > 0 {
-			taikoL1Address := cm.GetDeployAddr("TAIKO_L1_ADDRESS")
+			client := currentlyRunningProtocolDeployers[0].Client.(*clients.HiveManagedClient)
+			taikoL1Address, err := (client).GetDeployAddr("TAIKO_L1_ADDRESS")
+			if err != nil {
+				return nil, fmt.Errorf("Error while getting TAIKO_L1_ADDRESS: %v", err)
+			} else {
+				testnet.Logf("Found TAIKO_L1_ADDRESS: %s", taikoL1Address)
+			}
 			opts = append(opts, hivesim.Params{"HIVE_TAIKO_L1_ADDRESS": taikoL1Address})
+		} else {
+			return nil, fmt.Errorf("Did not found running L1L2 protocol deployer clients")
 		}
+
 		return opts, nil
 	}
 

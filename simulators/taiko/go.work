@@ -11,4 +11,5 @@ use (
 	./sanity/protocol-l2
 	./sanity/l2-taiko-geth
 	./sanity/l2-taiko-client
+	./sanity/l2-driver
 )

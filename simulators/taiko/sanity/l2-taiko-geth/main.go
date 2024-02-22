@@ -55,7 +55,7 @@ func main() {
 				ctx := context.Background()
 				testnetInstance := tn.StartTestnet(ctx, t, env, &config)
 				testnetInstance.Logf("testnet started")
-				//time.Sleep(10 * time.Second)
+				time.Sleep(1 * time.Hour)
 				chainId31336(t, testnetInstance)
 			}
 

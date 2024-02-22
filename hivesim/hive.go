@@ -307,7 +307,8 @@ func (sim *Simulation) ClientExec(testSuite SuiteID, test TestID, nodeid string,
 }
 
 func (sim *Simulation) ClientGetDeployAddr(testSuite SuiteID, test TestID, nodeid string, addrVarName string) (string, error) {
-	resp, err := sim.ClientExec(testSuite, test, nodeid, []string{fmt.Sprintf("/get_deploy_address.sh %s", addrVarName)})
+	resp, err := sim.ClientExec(testSuite, test, nodeid, []string{fmt.Sprintf("get_deploy_address.sh %s", addrVarName)})
+	panic(fmt.Sprintf("Resp: %v ,error: %v", resp, err))
 	if err != nil {
 		return "", err
 	}

@@ -6,7 +6,7 @@ go 1.18
 //
 //replace github.com/taikoxyz/hive-taiko-clients => ../../../../../hive-taiko-clients
 
-//replace github.com/taikoxyz/hive/simulators/taiko/common => ../../common/
+replace github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240216043039-c86e72544988 => ../../common/
 
 replace github.com/ethereum/go-ethereum v1.13.1 => github.com/ethereum/go-ethereum v1.11.5
 
@@ -16,7 +16,7 @@ replace github.com/cockroachdb/pebble => github.com/cockroachdb/pebble v0.0.0-20
 
 require (
 	github.com/ethereum/go-ethereum v1.13.5-0.20231031113925-bc42e88415d3
-	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240202100531-e788dd38dbe1
+	github.com/taikoxyz/hive/simulators/taiko/common v0.0.0-20240216043039-c86e72544988
 
 )
 
@@ -93,6 +93,7 @@ require (
 	github.com/fsouza/go-dockerclient v1.9.8 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
+	github.com/lithammer/dedent v1.1.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/moby/patternmatcher v0.6.0 // indirect
@@ -103,8 +104,8 @@ require (
 	github.com/opencontainers/image-spec v1.0.3-0.20211202183452-c5a74bcca799 // indirect
 	github.com/opencontainers/runc v1.1.5 // indirect
 	github.com/rs/cors v1.8.3 // indirect
-	github.com/taikoxyz/hive v0.0.0-20240216041901-c05b16635cb1 // indirect
-	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240215131450-c7052d476862 // indirect
+	github.com/taikoxyz/hive v0.0.0-20240216043039-c86e72544988 // indirect
+	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216123906-e77fdbfbe38e // indirect
 	github.com/taikoxyz/hive/hiveproxy v0.0.0-20240216041901-c05b16635cb1 // indirect
 	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.17.0 // indirect

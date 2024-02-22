@@ -1,6 +1,7 @@
 package clients
 
 import (
+	"errors"
 	"fmt"
 	"github.com/taikoxyz/hive-taiko-clients/clients"
 	"github.com/taikoxyz/hive/hivesim"
@@ -104,13 +105,14 @@ func (h *HiveManagedClient) GetAddress() string {
 	return h.HiveClient.IP.String()
 }
 
-func (h *HiveManagedClient) GetDeployAddr(addrVarName string) string {
+func (h *HiveManagedClient) GetDeployAddr(addrVarName string) (string, error) {
+	//panic(fmt.Errorf("Inside GetDeployAddr"))
 	if h.HiveClient == nil {
-		return ""
+		return "", errors.New("HiveClient not found")
 	}
 	deployAddr, err := h.HiveClient.GetDeployAddr(addrVarName)
 	if err != nil {
-		return ""
+		return "", err
 	}
-	return deployAddr
+	return deployAddr, nil
 }

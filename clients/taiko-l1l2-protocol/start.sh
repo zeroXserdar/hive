@@ -38,7 +38,7 @@ export FORGE_VERBOSE=true
   --block-gas-limit 100000000 |
   tee /root/deploy.log
 
-nc -l -p 8545
+nc -l -p 8545 &
 
 while true; do
   echo "Sleeping for 60 sec"

@@ -23,8 +23,12 @@ RUN apt-get update
 RUN apt-get install -y netcat-traditional
 
 RUN mkdir /hive-bin
-COPY get_deploy_address.sh /hive-bin/get_deploy_address.sh
-RUN chmod u+x /hive-bin/get_deploy_address.sh
+WORKDIR /hive-bin
+COPY get_deploy_address.sh .
+RUN chmod u+x get_deploy_address.sh
+COPY generate_addresses_scripts.sh .
+RUN chmod u+x generate_addresses_scripts.sh
+RUN ./generate_addresses_scripts.sh
 
 COPY saved_env.txt /saved_env.txt
 COPY ./start.sh /start.sh

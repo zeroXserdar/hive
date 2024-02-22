@@ -24,7 +24,7 @@ require (
 	github.com/protolambda/zrnt v0.30.0
 	github.com/protolambda/ztyp v0.2.2
 	github.com/rauljordan/engine-proxy v0.0.0-20230316220057-4c80c36c4c3a
-	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216120821-e29756f998de
+	github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216123906-e77fdbfbe38e
 	github.com/tyler-smith/go-bip39 v1.1.0
 	github.com/wealdtech/go-eth2-util v1.8.1
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9
@@ -102,7 +102,7 @@ require (
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
-	github.com/taikoxyz/hive v0.0.0-20240216041901-c05b16635cb1 // indirect
+	github.com/taikoxyz/hive v0.0.0-20240222050730-b2e04359c188 // indirect
 	github.com/taikoxyz/hive/hiveproxy v0.0.0-20240216041901-c05b16635cb1 // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
 	github.com/tklauser/numcpus v0.6.1 // indirect

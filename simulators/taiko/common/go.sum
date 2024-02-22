@@ -879,8 +879,11 @@ github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a h1:1ur3QoCqvE5f
 github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a/go.mod h1:RRCYJbIwD5jmqPI9XoAFR0OcDxqUctll6zUj/+B4S48=
 github.com/taikoxyz/hive v0.0.0-20240214144745-e53c007fe257 h1:dVLu7xegpEXWmeElJeWT65g2Dwmdhy+jC42mbyVs6NI=
 github.com/taikoxyz/hive v0.0.0-20240214144745-e53c007fe257/go.mod h1:9I3ZgRAy9yrQqmVIgBjC9ThAHJmBMNQejePdwCqu2Jg=
+github.com/taikoxyz/hive v0.0.0-20240222050730-b2e04359c188 h1:lxNzWQIGQIAqH2PMrs51o4uatO8CnmDaHvHI8/ztUIA=
+github.com/taikoxyz/hive v0.0.0-20240222050730-b2e04359c188/go.mod h1:Za83iNk0HIt4jlNarm0633vQC40e6Go0m6ZfdPxGQPQ=
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240124161112-88749a6e8367/go.mod h1:GDv68FknaQLKXovnGjOt7GKPR/SAbqCw05nQ4S+TAb0=
 github.com/taikoxyz/hive-taiko-clients v0.0.0-20240131133338-ce619c823117/go.mod h1:S/FYorE4XUN82JTV3m2tW6rSHEm11Mo0oCdUUChKfQo=
+github.com/taikoxyz/hive-taiko-clients v0.0.0-20240216123906-e77fdbfbe38e/go.mod h1:9Y4doSzyDjOCmDVvCMrC89XgiFcbGDh8MtETJ1WWHb4=
 github.com/taikoxyz/hive/hiveproxy v0.0.0-20240214143925-ec0b36a20cd4 h1:VRfv9Uk1rzoWmzDm89AHv2KWVp99V/vQWJF5zgdZ5h8=
 github.com/taikoxyz/hive/hiveproxy v0.0.0-20240214143925-ec0b36a20cd4/go.mod h1:Cg4zbdQ/rEmfiaCxVdO9BNbahO2HDMIFPpsXb5Uw2ls=
 github.com/taikoxyz/hive/hiveproxy v0.0.0-20240216041901-c05b16635cb1 h1:XogPCTtycbhN8fLM0yD20wYpz+3Ycl7WT3u6Ti5ih2E=

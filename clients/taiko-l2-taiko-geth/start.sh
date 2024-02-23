@@ -7,45 +7,45 @@ geth=/usr/local/bin/geth
 FLAGS="--pcscdpath=\"\""
 
 if [ "$HIVE_LOGLEVEL" != "" ]; then
-    FLAGS="$FLAGS --verbosity=$HIVE_LOGLEVEL"
+  FLAGS="$FLAGS --verbosity=$HIVE_LOGLEVEL"
 fi
 
 # It doesn't make sense to dial out, use only a pre-set bootnode.
 #FLAGS="$FLAGS --bootnodes=$HIVE_BOOTNODE"
 
 if [ "$HIVE_SKIP_POW" != "" ]; then
-    FLAGS="$FLAGS --fakepow"
+  FLAGS="$FLAGS --fakepow"
 fi
 
 # If a specific network ID is requested, use that
 if [ "$HIVE_NETWORK_ID" != "" ]; then
-    FLAGS="$FLAGS --networkid $HIVE_NETWORK_ID"
+  FLAGS="$FLAGS --networkid $HIVE_NETWORK_ID"
 else
-    # Unless otherwise specified by hive, we try to avoid mainnet networkid. If geth detects mainnet network id,
-    # then it tries to bump memory quite a lot
-    FLAGS="$FLAGS --networkid 1337"
+  # Unless otherwise specified by hive, we try to avoid mainnet networkid. If geth detects mainnet network id,
+  # then it tries to bump memory quite a lot
+  FLAGS="$FLAGS --networkid 1337"
 fi
 
 # If the client is to be run in testnet mode, flag it as such
 if [ "$HIVE_TESTNET" == "1" ]; then
-    FLAGS="$FLAGS --testnet"
+  FLAGS="$FLAGS --testnet"
 fi
 
 # Handle any client mode or operation requests
 if [ "$HIVE_NODETYPE" == "archive" ]; then
-    FLAGS="$FLAGS --syncmode full --gcmode archive"
+  FLAGS="$FLAGS --syncmode full --gcmode archive"
 fi
 if [ "$HIVE_NODETYPE" == "full" ]; then
-    FLAGS="$FLAGS --syncmode full"
+  FLAGS="$FLAGS --syncmode full"
 fi
 if [ "$HIVE_NODETYPE" == "light" ]; then
-    FLAGS="$FLAGS --syncmode light"
+  FLAGS="$FLAGS --syncmode light"
 fi
 if [ "$HIVE_NODETYPE" == "snap" ]; then
-    FLAGS="$FLAGS --syncmode snap"
+  FLAGS="$FLAGS --syncmode snap"
 fi
 if [ -z "$HIVE_NODETYPE" ]; then
-    FLAGS="$FLAGS --syncmode snap"
+  FLAGS="$FLAGS --syncmode snap"
 fi
 
 # Import clique signing key.
@@ -63,16 +63,17 @@ fi
 
 # Configure any mining operation
 #if [ -n "$HIVE_MINER" ] && [ "$HIVE_NODETYPE" != "light" ]; then
-#    FLAGS="$FLAGS --mine --miner.threads 1 --miner.etherbase $HIVE_MINER"
+#FLAGS="$FLAGS --mine --miner.threads 1 --miner.etherbase $HIVE_MINER"
+#FLAGS="$FLAGS --mine --miner.etherbase 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
 #fi
 if [ -n "$HIVE_MINER_EXTRA" ]; then
-    FLAGS="$FLAGS --miner.extradata $HIVE_MINER_EXTRA"
+  FLAGS="$FLAGS --miner.extradata $HIVE_MINER_EXTRA"
 fi
 FLAGS="$FLAGS --miner.gasprice 16000000000"
 
 # Configure LES.
 if [ "$HIVE_LES_SERVER" == "1" ]; then
-    FLAGS="$FLAGS --light.serve 50 --light.nosyncserve"
+  FLAGS="$FLAGS --light.serve 50 --light.nosyncserve"
 fi
 
 # Configure RPC.
@@ -86,11 +87,11 @@ FLAGS="$FLAGS --ws --ws.addr=0.0.0.0 --ws.origins=* --ws.api=admin,debug,eth,min
 
 # Configure GraphQL.
 if [ -n "$HIVE_GRAPHQL_ENABLED" ]; then
-    FLAGS="$FLAGS --graphql"
+  FLAGS="$FLAGS --graphql"
 fi
 # used for the graphql to allow submission of unprotected tx
 if [ -n "$HIVE_ALLOW_UNPROTECTED_TX" ]; then
-    FLAGS="$FLAGS --rpc.allow-unprotected-txs"
+  FLAGS="$FLAGS --rpc.allow-unprotected-txs"
 fi
 
 # Run the go-ethereum implementation with the requested flags.
@@ -120,6 +121,6 @@ echo "TCP connection on $IP_ADDRESS:$PORT is available."
 TAIKO_L2_GENESIS_HASH=$(geth --exec 'eth.getBlock(0).hash' attach /taiko-l2-network/node/geth.ipc)
 export TAIKO_L2_GENESIS_HASH
 echo "TAIKO_L2_GENESIS_HASH=$TAIKO_L2_GENESIS_HASH"
-env | grep TAIKO > /saved_env.txt
+env | grep TAIKO >/saved_env.txt
 
 wait

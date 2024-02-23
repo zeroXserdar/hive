@@ -17,4 +17,7 @@ RUN chmod +x /hive-bin/enode.sh
 RUN sed -i 's/\(--http\.api debug,eth,net,web3,txpool,miner\)/\1,admin/' /start.sh
 RUN sed -i 's/\(--ws\.api debug,eth,net,web3,txpool,miner\)/\1,admin/' /start.sh
 
+RUN sed -i 's/--mine/--mine \\/' /start.sh
+RUN echo "--log.debug" >> /start.sh
+
 RUN /usr/local/bin/geth console --exec 'console.log(admin.nodeInfo.name)' --maxpeers=0 --nodiscover --dev 2>/dev/null | head -1 >/version.txt

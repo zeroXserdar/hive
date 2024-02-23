@@ -5,7 +5,7 @@
 config: {
   ownerTimelockController: '0x5C8dA51Fd337936Ed0c49480E7A5aD7bCEc2217A',
   ownerSecurityCouncil: '0xAb707cb80e7de7C75d815B1A653433F3EEc44c74',
-  ownerChainId: 31336,
+  ownerChainId: 32382,
   chainId: 167001,
   seedAccounts: [
     { '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266': 1024 },

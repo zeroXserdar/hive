@@ -1,6 +1,6 @@
-FROM gcr.io/evmchain/taiko-client:main
+FROM gcr.io/evmchain/taiko-client:sha-c73661e
 
-RUN apk add --update bash jq curl
+RUN apk add --update bash jq curl netcat-openbsd
 RUN which bash
 RUN echo $SHELL
 

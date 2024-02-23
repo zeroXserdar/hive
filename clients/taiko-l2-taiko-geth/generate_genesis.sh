@@ -49,8 +49,9 @@ cd genesis_tmp
 git clone git@github.com:taikoxyz/k8s-configs.git
 cd k8s-configs
 #git checkout update-a6-internal
-cp internal-devnet/docker/blockscout/internal-l2a-genesis.json ../../deployments/
-jq --sort-keys "." ../../deployments/internal-l2a-genesis.json >../../deployments/sorted_internal-l2a-genesis.json
+#git checkout update-l2-genesis-2
+#cp internal-devnet/docker/blockscout/internal-l2a-genesis.json ../../deployments/
+#jq --sort-keys "." ../../deployments/internal-l2a-genesis.json >../../deployments/sorted_internal-l2a-genesis.json
 cd ..
 git clone git@github.com:taikoxyz/taiko-mono.git
 cd taiko-mono/packages/protocol

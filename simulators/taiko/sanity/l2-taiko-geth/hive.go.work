@@ -1,6 +1,7 @@
 go 1.18
 
 use (
-	./common
-	./sanity/l2-taiko-geth
+    ./
+	./simulators/taiko/common
+	./simulators/taiko/sanity/l2-taiko-geth
 )

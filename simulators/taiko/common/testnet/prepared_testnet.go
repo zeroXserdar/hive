@@ -729,6 +729,17 @@ func (p *PreparedTestnet) prepareL2DriverNode(
 			"HIVE_TAIKO_URL": l2UserRPC,
 		})
 
+		jwtSecret, err := l2ExecutionClient.Client.(*clients.HiveManagedClient).GetJWTSecret()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l2 execution client node used for driver without available jwt secret: %v",
+				err,
+			)
+		}
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_L2_GETH_JWT_SECRET": jwtSecret,
+		})
+
 		opts = append(opts, hivesim.Params{
 			"HIVE_TAIKO_ROLE": "driver",
 		})
@@ -809,6 +820,7 @@ func (p *PreparedTestnet) prepareL2ProposerNode(
 	config proposer.ProposerClientConfig,
 	l1ExecutionClientEndpoint *execution_client.ExecutionClient,
 	l2ExecutionClientEndpoint *execution_client.ExecutionClient,
+	l1l2ProtocolDeployerClientEndpoint *protocol_deployer_client.ProtocolDeployerClient,
 ) *proposer.ProposerClient {
 	testnet.Logf(
 		"Preparing L2 proposer node: %s (%s)",
@@ -823,6 +835,91 @@ func (p *PreparedTestnet) prepareL2ProposerNode(
 	cm := &clients.HiveManagedClient{
 		T:                    testnet.T,
 		HiveClientDefinition: proposerDef,
+	}
+
+	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
+		opts := []hivesim.StartOption{p.L2ProposerOpts}
+
+		l1ExecutionClient := *l1ExecutionClientEndpoint
+		l2ExecutionClient := *l2ExecutionClientEndpoint
+		l1l2ProtocolDeployerClient := *l1l2ProtocolDeployerClientEndpoint
+
+		if !l1ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 proposer node when the L1 execution client is not yet running",
+			)
+		}
+		if !l2ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 proposer node when the L2 execution client is not yet running",
+			)
+		}
+
+		if !l1l2ProtocolDeployerClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 proposer node when the L1L2 protocol deployer client is not yet running",
+			)
+		}
+
+		//execNode := deploymentTargetExecutionClient.Proxy()
+		//userRPC, err := execNode.UserRPCAddress()
+		l1UserRPC, err := l1ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l1 execution client node used for proposer without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_MAINNET_URL": l1UserRPC,
+		})
+
+		l2UserRPC, err := l2ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l2 execution client node used for proposer without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_URL": l2UserRPC,
+		})
+
+		jwtSecret, err := l2ExecutionClient.Client.(*clients.HiveManagedClient).GetJWTSecret()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l2 execution client node used for proposer without available jwt secret: %v",
+				err,
+			)
+		}
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_L2_GETH_JWT_SECRET": jwtSecret,
+		})
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_ROLE": "proposer",
+		})
+
+		//panic(fmt.Errorf("Blablalba"))
+		currentlyRunningProtocolDeployers := testnet.L1L2ProtocolDeployerClients().
+			Running().
+			Subnet(config.Subnet)
+		if len(currentlyRunningProtocolDeployers) > 0 {
+			client := currentlyRunningProtocolDeployers[0].Client.(*clients.HiveManagedClient)
+			taikoL1Address, err := (client).GetDeployAddr("TAIKO_L1_ADDRESS")
+			if err != nil {
+				return nil, fmt.Errorf("Error while getting TAIKO_L1_ADDRESS: %v", err)
+			} else {
+				testnet.Logf("Found TAIKO_L1_ADDRESS: %s", taikoL1Address)
+			}
+			opts = append(opts, hivesim.Params{"HIVE_TAIKO_L1_ADDRESS": taikoL1Address})
+		} else {
+			return nil, fmt.Errorf("Did not found running L1L2 protocol deployer clients")
+		}
+
+		return opts, nil
 	}
 
 	cl := &proposer.ProposerClient{
@@ -866,70 +963,8 @@ func (p *PreparedTestnet) prepareL2ProposerNode(
 	//	}
 	//}
 
-	// This method will return the options used to run the client.
-	// Requires a method that returns the rest of the currently running
-	// beacon clients on the network at startup.
-	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
-		opts := []hivesim.StartOption{p.L2ProposerOpts}
-
-		l1ExecutionClient := *l1ExecutionClientEndpoint
-		l2ExecutionClient := *l2ExecutionClientEndpoint
-
-		if !l1ExecutionClient.IsRunning() {
-			return nil, fmt.Errorf(
-				"attempted to start L2 proposer node when the L1 execution client is not yet running",
-			)
-		}
-		if !l2ExecutionClient.IsRunning() {
-			return nil, fmt.Errorf(
-				"attempted to start L2 proposer node when the L2 execution client is not yet running",
-			)
-		}
-
-		//execNode := deploymentTargetExecutionClient.Proxy()
-		//userRPC, err := execNode.UserRPCAddress()
-		l1UserRPC, err := l1ExecutionClient.UserRPCAddress()
-		if err != nil {
-			return nil, fmt.Errorf(
-				"l1 execution client node used for proposer without available RPC: %v",
-				err,
-			)
-		}
-
-		opts = append(opts, hivesim.Params{
-			"HIVE_MAINNET_URL": l1UserRPC,
-		})
-
-		l2UserRPC, err := l2ExecutionClient.UserRPCAddress()
-		if err != nil {
-			return nil, fmt.Errorf(
-				"l2 execution client node used for proposer without available RPC: %v",
-				err,
-			)
-		}
-
-		opts = append(opts, hivesim.Params{
-			"HIVE_TAIKO_URL": l2UserRPC,
-		})
-
-		opts = append(opts, hivesim.Params{
-			"HIVE_TAIKO_ROLE": "proposer",
-		})
-		//opts = append(
-		//	opts,
-		//	hivesim.Params{
-		//		"HIVE_TERMINAL_TOTAL_DIFFICULTY": fmt.Sprintf(
-		//			"%d",
-		//			config.TerminalTotalDifficulty,
-		//		),
-		//	},
-		//)
-
-		return opts, nil
-	}
-
 	testnet.Logf(
-		"Finished preparing proposer deployer node: %s (%s)",
+		"Finished preparing proposer node: %s (%s)",
 		proposerDef.Name,
 		proposerDef.Version,
 	)
@@ -943,6 +978,7 @@ func (p *PreparedTestnet) prepareL2ProverNode(
 	config prover.ProverClientConfig,
 	l1ExecutionClientEndpoint *execution_client.ExecutionClient,
 	l2ExecutionClientEndpoint *execution_client.ExecutionClient,
+	l1l2ProtocolDeployerClientEndpoint *protocol_deployer_client.ProtocolDeployerClient,
 ) *prover.ProverClient {
 	testnet.Logf(
 		"Preparing L2 prover node: %s (%s)",
@@ -957,6 +993,100 @@ func (p *PreparedTestnet) prepareL2ProverNode(
 	cm := &clients.HiveManagedClient{
 		T:                    testnet.T,
 		HiveClientDefinition: proverDef,
+	}
+
+	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
+		opts := []hivesim.StartOption{p.L2ProverOpts}
+
+		l1ExecutionClient := *l1ExecutionClientEndpoint
+		l2ExecutionClient := *l2ExecutionClientEndpoint
+		l1l2ProtocolDeployerClient := *l1l2ProtocolDeployerClientEndpoint
+
+		if !l1ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 prover node when the L1 execution client is not yet running",
+			)
+		}
+		if !l2ExecutionClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 prover node when the L2 execution client is not yet running",
+			)
+		}
+
+		if !l1l2ProtocolDeployerClient.IsRunning() {
+			return nil, fmt.Errorf(
+				"attempted to start L2 prover node when the L1L2 protocol deployer client is not yet running",
+			)
+		}
+
+		//execNode := deploymentTargetExecutionClient.Proxy()
+		//userRPC, err := execNode.UserRPCAddress()
+		l1UserRPC, err := l1ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l1 execution client node used for prover without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_MAINNET_URL": l1UserRPC,
+		})
+
+		l2UserRPC, err := l2ExecutionClient.UserRPCAddress()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l2 execution client node used for prover without available RPC: %v",
+				err,
+			)
+		}
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_URL": l2UserRPC,
+		})
+
+		jwtSecret, err := l2ExecutionClient.Client.(*clients.HiveManagedClient).GetJWTSecret()
+		if err != nil {
+			return nil, fmt.Errorf(
+				"l2 execution client node used for prover without available jwt secret: %v",
+				err,
+			)
+		}
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_L2_GETH_JWT_SECRET": jwtSecret,
+		})
+
+		opts = append(opts, hivesim.Params{
+			"HIVE_TAIKO_ROLE": "prover",
+		})
+
+		//panic(fmt.Errorf("Blablalba"))
+		currentlyRunningProtocolDeployers := testnet.L1L2ProtocolDeployerClients().
+			Running().
+			Subnet(config.Subnet)
+		if len(currentlyRunningProtocolDeployers) > 0 {
+			client := currentlyRunningProtocolDeployers[0].Client.(*clients.HiveManagedClient)
+
+			taikoL1Address, err := (client).GetDeployAddr("TAIKO_L1_ADDRESS")
+			if err != nil {
+				return nil, fmt.Errorf("Error while getting TAIKO_L1_ADDRESS: %v", err)
+			} else {
+				testnet.Logf("Found TAIKO_L1_ADDRESS: %s", taikoL1Address)
+			}
+			opts = append(opts, hivesim.Params{"HIVE_TAIKO_L1_ADDRESS": taikoL1Address})
+
+			taikoL1TokenAddress, err := (client).GetDeployAddr("TAIKO_L1_TOKEN_ADDRESS")
+			if err != nil {
+				return nil, fmt.Errorf("Error while getting TAIKO_L1_TOKEN_ADDRESS: %v", err)
+			} else {
+				testnet.Logf("Found TAIKO_L1_TOKEN_ADDRESS: %s", taikoL1TokenAddress)
+			}
+			opts = append(opts, hivesim.Params{"HIVE_TAIKO_L1_TOKEN_ADDRESS": taikoL1TokenAddress})
+		} else {
+			return nil, fmt.Errorf("Did not found running L1L2 protocol deployer clients")
+		}
+
+		return opts, nil
 	}
 
 	cl := &prover.ProverClient{
@@ -999,68 +1129,6 @@ func (p *PreparedTestnet) prepareL2ProverNode(
 	//		panic(err)
 	//	}
 	//}
-
-	// This method will return the options used to run the client.
-	// Requires a method that returns the rest of the currently running
-	// beacon clients on the network at startup.
-	cm.OptionsGenerator = func() ([]hivesim.StartOption, error) {
-		opts := []hivesim.StartOption{p.L2ProverOpts}
-
-		l1ExecutionClient := *l1ExecutionClientEndpoint
-		l2ExecutionClient := *l2ExecutionClientEndpoint
-
-		if !l1ExecutionClient.IsRunning() {
-			return nil, fmt.Errorf(
-				"attempted to start L2 prover node when the L1 execution client is not yet running",
-			)
-		}
-		if !l2ExecutionClient.IsRunning() {
-			return nil, fmt.Errorf(
-				"attempted to start L2 prover node when the L2 execution client is not yet running",
-			)
-		}
-
-		//execNode := deploymentTargetExecutionClient.Proxy()
-		//userRPC, err := execNode.UserRPCAddress()
-		l1UserRPC, err := l1ExecutionClient.UserRPCAddress()
-		if err != nil {
-			return nil, fmt.Errorf(
-				"l1 execution client node used for prover without available RPC: %v",
-				err,
-			)
-		}
-
-		opts = append(opts, hivesim.Params{
-			"HIVE_MAINNET_URL": l1UserRPC,
-		})
-
-		l2UserRPC, err := l2ExecutionClient.UserRPCAddress()
-		if err != nil {
-			return nil, fmt.Errorf(
-				"l2 execution client node used for prover without available RPC: %v",
-				err,
-			)
-		}
-
-		opts = append(opts, hivesim.Params{
-			"HIVE_TAIKO_URL": l2UserRPC,
-		})
-
-		opts = append(opts, hivesim.Params{
-			"HIVE_TAIKO_ROLE": "prover",
-		})
-		//opts = append(
-		//	opts,
-		//	hivesim.Params{
-		//		"HIVE_TERMINAL_TOTAL_DIFFICULTY": fmt.Sprintf(
-		//			"%d",
-		//			config.TerminalTotalDifficulty,
-		//		),
-		//	},
-		//)
-
-		return opts, nil
-	}
 
 	testnet.Logf(
 		"Finished preparing prover node: %s (%s)",

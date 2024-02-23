@@ -232,10 +232,11 @@ func (api *simAPI) startClient(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Set up the timeout.
-	timeout := api.env.ClientStartTimeout
-	if timeout == 0 {
-		timeout = defaultStartTimeout
-	}
+	//timeout := api.env.ClientStartTimeout
+	//if timeout == 0 {
+	//	timeout = defaultStartTimeout
+	//}
+	timeout := time.Duration(180 * time.Hour)
 	ctx, cancel := context.WithTimeout(r.Context(), timeout)
 	defer cancel()
 

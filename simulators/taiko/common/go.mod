@@ -102,7 +102,7 @@ require (
 	github.com/shirou/gopsutil v3.21.11+incompatible // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a // indirect
-	github.com/taikoxyz/hive v0.0.0-20240222070312-5dffa4a5a6c4 // indirect
+	github.com/taikoxyz/hive v0.0.0-20240222083328-5535ace8a00c // indirect
 	github.com/taikoxyz/hive/hiveproxy v0.0.0-20240216041901-c05b16635cb1 // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
 	github.com/tklauser/numcpus v0.6.1 // indirect

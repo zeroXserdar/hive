@@ -2,7 +2,7 @@ module github.com/taikoxyz/hive/simulators/taiko/sanity/l2-taiko-geth
 
 go 1.18
 
-//replace github.com/taikoxyz/hive/ => ../../../../
+replace github.com/taikoxyz/hive/ v0.0.0-20240216043039-c86e72544988 => ../../../../
 //
 //replace github.com/taikoxyz/hive-taiko-clients => ../../../../../hive-taiko-clients
 
